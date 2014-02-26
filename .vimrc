@@ -31,4 +31,10 @@ vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
 set t_Co=256
 syntax on
 "colorscheme SolarizedDark_modified
-colorscheme seoul256
+colorscheme lucius 
+LuciusDark
+let g:lucius_contrast = "low"
+map <silent> <F3> :Rex<CR>
+vmap <leader>cc :s/^/#/<cr>
+vmap <leader>co :s/^#//<cr>
+nnoremap <silent> <C-W>t :tabnew<CR> 

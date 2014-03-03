@@ -1,16 +1,8 @@
 set nu
-if &term =~ '^screen'
-" tmux will send xterm-style keys when its xterm-keys option is on
- execute "set <xUp>=\e[1;*A"
- execute "set <xDown>=\e[1;*B"
- execute "set <xRight>=\e[1;*C"
- execute "set <xLeft>=\e[1;*D"
-endif 
-set expandtab
-set tabstop=2
+set directory=$HOME/.vim/swapfiles/
 call pathogen#incubate()
 call pathogen#helptags() 
-" set compatible to false
+" Doodle
 set nocp 
 filetype plugin on
 
@@ -24,13 +16,13 @@ ino <right> <Nop>
 ino <up> <Nop>
 ino <down> <Nop>
 
-map <silent> <F5> :call gruvbox#bg_toggle()<CR>
-imap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>a
-vmap <silent> <F5> <ESC>:call gruvbox#bg_toggle()<CR>gv
+nmap j jzz
+nmap h hzz
+nmap k kzz
+nmap l lzz
 
 set t_Co=256
 syntax on
-"colorscheme SolarizedDark_modified
 colorscheme lucius 
 LuciusDark
 let g:lucius_contrast = "low"
@@ -38,3 +30,19 @@ map <silent> <F3> :Rex<CR>
 vmap <leader>cc :s/^/#/<cr>
 vmap <leader>co :s/^#//<cr>
 nnoremap <silent> <C-W>t :tabnew<CR> 
+set autoindent
+set cindent
+set smartindent
+set shiftwidth=2
+set expandtab
+hi MatchParen cterm=none ctermbg=none ctermfg=white
+set softtabstop=2
+
+nnoremap / /\v
+vnoremap / /\v
+
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+noremap H ^
+noremap L g_

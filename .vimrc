@@ -1,6 +1,6 @@
 set nu
 set directory=$HOME/.vim/swapfiles/
-call pathogen#incubate()
+call pathogen#infect()
 call pathogen#helptags() 
 " Doodle
 set nocp 
@@ -20,6 +20,9 @@ nmap j jzz
 nmap h hzz
 nmap k kzz
 nmap l lzz
+
+nnoremap <C-left> :tabprevious<CR>
+nnoremap <C-right> :tabnext<CR>
 
 set t_Co=256
 syntax on

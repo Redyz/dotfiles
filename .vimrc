@@ -2,7 +2,6 @@ set nu
 set directory=$HOME/.vim/swapfiles/
 call pathogen#infect()
 call pathogen#helptags() 
-" Doodle
 set nocp 
 filetype plugin on
 
@@ -49,3 +48,17 @@ nnoremap N Nzzzv
 
 noremap H ^
 noremap L g_
+
+"enable mouse support
+set mouse=a
+set ttymouse=xterm2
+"enable F5 to switch between buffers
+nnoremap <F5> :buffers<CR>:buffer<Space>
+"remap the : to the ;
+nnoremap ; :
+"don't wrap lines
+set nowrap
+set title
+
+set matchtime=2
+

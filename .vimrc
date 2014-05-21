@@ -1,8 +1,7 @@
 set nu
 set directory=$HOME/.vim/swapfiles/
-call pathogen#incubate()
+call pathogen#infect()
 call pathogen#helptags() 
-" Doodle
 set nocp 
 filetype plugin on
 
@@ -22,6 +21,9 @@ nmap k kzz
 nmap l lzz
 nnoremap } }zz
 nnoremap { {zz
+
+nnoremap <C-left> :tabprevious<CR>
+nnoremap <C-right> :tabnext<CR>
 
 set t_Co=256
 syntax on
@@ -59,4 +61,16 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 "use the system clipboard by default
 set clipboard=unnamed
+"enable mouse support
 set mouse=a
+set ttymouse=xterm2
+"enable F5 to switch between buffers
+nnoremap <F5> :buffers<CR>:buffer<Space>
+"remap the : to the ;
+nnoremap ; :
+"don't wrap lines
+set nowrap
+set title
+
+set matchtime=2
+

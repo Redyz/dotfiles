@@ -73,4 +73,6 @@ set nowrap
 set title
 
 set matchtime=2
-
+"two lined status bar
+set laststatus=2
+source ~/Documents/git/powerline/powerline/bindings/vim/plugin/powerline.vim

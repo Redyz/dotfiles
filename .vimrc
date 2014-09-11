@@ -40,9 +40,6 @@ set expandtab
 hi MatchParen cterm=none ctermbg=none ctermfg=white
 set softtabstop=2
 
-nnoremap / /\v
-vnoremap / /\v
-
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
@@ -74,3 +71,13 @@ set title
 
 set matchtime=2
 
+"allow backspacing
+set backspace=indent,eol,start
+
+"set indent folds for python
+set foldmethod=indent
+"fold management with space
+nnoremap <space> za
+vnoremap <space> zf
+"max folds
+set foldnestmax=2

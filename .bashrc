@@ -36,3 +36,9 @@ export PS1="[\[$(tput sgr0)\]\[\033[38;5;245m\]\A\[$(tput sgr0)\]\[\033[38;5;15m
 export EDITOR=vim
 
 alias tmux='tmux -2'
+
+no () { 
+  [ -f ~/T/$1.v ] && vim ~/T/$1.v || ls ~/T;
+}
+
+

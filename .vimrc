@@ -43,7 +43,9 @@ nmap l lzz
 nnoremap } }zz
 nnoremap { {zz
 
+
 hi MatchParen cterm=none ctermbg=none ctermfg=white
+hi Folded ctermfg=DarkGreen ctermbg=Black
 set autoindent
 set backspace=indent,eol,start
 set cindent

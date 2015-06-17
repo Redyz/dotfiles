@@ -1,6 +1,6 @@
+set nocp
 call pathogen#infect()
-call pathogen#helptags() 
-filetype plugin on
+filetype plugin indent on
 
 set t_Co=256
 syntax on
@@ -43,22 +43,20 @@ nmap l lzz
 nnoremap } }zz
 nnoremap { {zz
 
-
-hi MatchParen cterm=none ctermbg=none ctermfg=white
+nmap <Leader><Leader>W <Plug>(easymotion-b)
+"set autoindent
+"set cindent
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"set shiftwidth=2
 hi Folded ctermfg=DarkGreen ctermbg=Black
-set autoindent
+hi MatchParen cterm=none ctermbg=none ctermfg=white
 set backspace=indent,eol,start
-set cindent
 set expandtab
-set foldmethod=indent
 set matchtime=2
 set mouse=a
-set nocp 
 set noswapfile
 set nowrap
-set nu
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set shiftwidth=2
+set number
 set smartindent
 set softtabstop=2
 set title

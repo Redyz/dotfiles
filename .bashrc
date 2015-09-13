@@ -37,6 +37,10 @@ export EDITOR=vim
 
 alias tmux='tmux -2'
 
+ddp () {
+ sudo kill -USR1 $(pgrep ^dd)
+}
+
 no () { 
   [ -f ~/T/$1.v ] && vim ~/T/$1.v || ls ~/T;
 }

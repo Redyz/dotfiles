@@ -37,6 +37,8 @@ export EDITOR=vim
 
 alias tmux='tmux -2'
 
+export TERM=screen-256color
+
 ddp () {
  sudo kill -USR1 $(pgrep ^dd)
 }
@@ -45,4 +47,16 @@ no () {
   [ -f ~/T/$1.v ] && vim ~/T/$1.v || ls ~/T;
 }
 
+startxx () {
+  startx /home/reightb/Documents/git/dwm/dwm -- -dpi 85
+  /home/reightb/Documents/scripts/laptop-scripts/dwm-script &
+}
+
+ttop () {
+  ps auxk-pcpu | head -n 10
+}
+
+clock () {
+ sudo ntpdate pool.ntp.org
+}
 

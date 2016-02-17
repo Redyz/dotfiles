@@ -47,17 +47,24 @@ nmap <Leader><Leader>W <Plug>(easymotion-b)
 "set autoindent
 "set cindent
 "set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-"set shiftwidth=2
+set shiftwidth=2
+set tabstop=2
 hi Folded ctermfg=DarkGreen ctermbg=Black
 hi MatchParen cterm=none ctermbg=none ctermfg=white
 set backspace=indent,eol,start
-set expandtab
+"set expandtab
 set matchtime=2
 set mouse=a
 set noswapfile
 set nowrap
 set number
 set smartindent
-set softtabstop=2
+"set softtabstop=2
 set title
 set ttymouse=xterm2
+
+runtime plugin/supertab.vim
+
+" Plugins
+"nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()

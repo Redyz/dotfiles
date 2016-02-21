@@ -27,6 +27,7 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'mileszs/ack.vim'
 
 " You can specify revision/branch/tag.
 "NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -102,12 +103,16 @@ endif
 
 " ctrlp
 hi Pmenu ctermfg=226
-noremap <Leader>p :CtrlPMRU<CR>
+noremap <Leader>p :CtrlPBuffer<CR>
 
 " Buffers are tabs
 let g:airline#extensions#tabline#enabled = 1
 
 " Ctags
 let g:vim_tags_auto_generate = 1
+
+" ack
+let g:ackprg = "ack -i --column"
+"let g:ack_default_options = " -i --column"
 
 "runtime plugin/supertab.vim

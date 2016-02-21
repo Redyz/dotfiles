@@ -1,13 +1,50 @@
-set nocp
-call pathogen#infect()
+"NeoBundle Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath^=/home/reightb/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('/home/reightb/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+"NeoBundle 'Shougo/neosnippet.vim'
+"NeoBundle 'Shougo/neosnippet-snippets'
+"NeoBundle 'Shougo/neocomplete.vim'
+"NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'szw/vim-tags'
+"NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'fatih/vim-go'
+
+" You can specify revision/branch/tag.
+"NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Required:
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
 
-set t_Co=256
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
 syntax on
-colorscheme lucius 
-LuciusDark
-let g:lucius_contrast = "low"
-map <silent> <F3> :Rex<CR>
+colorscheme busierbee 
+"colorscheme zenburn 
 
 inoremap <C-f> <C-x><C-f>
 inoremap <C-l> <C-x><C-l>
@@ -15,13 +52,15 @@ inoremap <C-u> <esc>gUiwea
 nnoremap ; :
 nnoremap <C-left> :tabprevious<CR>
 nnoremap <C-right> :tabnext<CR>
-nnoremap <C-u> gUiw
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <silent> <C-W>t :tabnew<CR> 
 nnoremap <space> za
 nnoremap A<esc> <nop>
-nnoremap N Nzzzv
-nnoremap n nzzzv
+
+"Escape clears search
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
 noremap H ^
 noremap L g_
 vnoremap <space> zf
@@ -36,35 +75,39 @@ ino <right> <Nop>
 ino <up> <Nop>
 ino <down> <Nop>
 
-nmap j jzz
-nmap h hzz
-nmap k kzz
-nmap l lzz
-nnoremap } }zz
-nnoremap { {zz
-
 nmap <Leader><Leader>W <Plug>(easymotion-b)
-"set autoindent
-"set cindent
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set shiftwidth=2
-set tabstop=2
-hi Folded ctermfg=DarkGreen ctermbg=Black
-hi MatchParen cterm=none ctermbg=none ctermfg=white
+
 set backspace=indent,eol,start
-"set expandtab
+set laststatus=2 "Force 2 lines status
 set matchtime=2
 set mouse=a
+set nocp
 set noswapfile
 set nowrap
 set number
+set relativenumber
+set shiftwidth=2
 set smartindent
-"set softtabstop=2
+set t_Co=256
+set tabstop=2
 set title
 set ttymouse=xterm2
+set hlsearch
 
-runtime plugin/supertab.vim
 
-" Plugins
-"nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+"Remember last position
+if has("autocmd")
+	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" ctrlp
+hi Pmenu ctermfg=226
+noremap <Leader>p :CtrlPMRU<CR>
+
+" Buffers are tabs
+let g:airline#extensions#tabline#enabled = 1
+
+" Ctags
+let g:vim_tags_auto_generate = 1
+
+"runtime plugin/supertab.vim

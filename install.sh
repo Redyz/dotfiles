@@ -1,4 +1,22 @@
 #!/bin/bash
+function verify_ln(){
+	if ! [ -e $2 ]; then
+		ln -fs $1 $2
+		echo Creating symlink $1
+	else
+		echo Symlink $1 already exists
+	fi;
+}
+
+function home_ln(){
+	if ! [ -z ${2+x} ]; then
+		mkdir -p `dirname $2`
+		verify_ln ~/Documents/git/dotfiles/$1 ~/$2
+	else
+		verify_ln ~/Documents/git/dotfiles/$1 ~/`basename $1`
+	fi;
+}
+
 echo "Dotfiles install script"
 touch ~/.private-bashrc
 
@@ -13,3 +31,14 @@ if [ ! -d "$HOME/.vim/bundle/neobundle.vim" ]; then
 else
 	echo "Neobundle already installed"
 fi;
+
+
+mkdir -p ~/.newsbeuter
+
+
+home_ln vim/.vimrc 
+home_ln tmux/.tmux
+home_ln tmux/.tmux.conf
+home_ln .bashrc
+home_ln newsbeuter/urls .newsbeuter/urls
+home_ln newsbeuter/config .newsbeuter/config

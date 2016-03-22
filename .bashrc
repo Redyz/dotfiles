@@ -1,5 +1,3 @@
-# .bashrc
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -35,12 +33,13 @@ alias tmux='tmux -2'
 export EDITOR=vim
 export PS1="[\[$(tput sgr0)\]\[\033[38;5;245m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;46m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\h\[$(tput sgr0)\]:[\[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput sgr0)\]\[\033[38;5;154m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 export TERM=screen-256color
+#export TERM=fbterm
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-flat.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+#BASE16_SHELL="$HOME/.config/base16-shell/base16-flat.dark.sh"
+#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 ddp () {
  sudo kill -USR1 $(pgrep ^dd)
@@ -78,5 +77,19 @@ fix() {
 	reset
 	source ~/.bashrc
 }
+
+ydl() {
+ youtube-dl "$1" -o - | mpv -
+}
+
+min() {
+	fbterm; TERM=fbterm tmux -2
+}
 source ~/.private-bashrc
 
+#echo "If you're running in tty mode:"
+#echo "fbterm + TERM=fbterm tmux -2"
+
+ttop() {
+	watch "ps aux | sort -rk 3,3 | head -n 6"
+}

@@ -45,6 +45,7 @@ mkdir -p ~/.config/terminator
 home_ln vim/.vimrc 
 home_ln tmux/.tmux
 home_ln tmux/.tmux.conf
+home_ln tmux/.tmuxsnapshot
 home_ln .bashrc
 home_ln newsbeuter/urls .newsbeuter/urls
 home_ln newsbeuter/config .newsbeuter/config

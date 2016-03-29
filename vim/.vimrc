@@ -1,13 +1,14 @@
 "NeoBundle Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
+
 endif
 
 " Required:
-set runtimepath^=/home/reightb/.vim/bundle/neobundle.vim/
+set runtimepath^=~/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/home/reightb/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -24,7 +25,7 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'vim-airline/vim-airline'
 "NeoBundle 'ervandew/supertab'
 NeoBundle 'szw/vim-tags'
-"NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'Shougo/unite.vim'

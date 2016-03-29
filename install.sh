@@ -1,4 +1,7 @@
 #!/bin/bash
+#TODO: Patched fonts,
+#			 
+
 function verify_ln(){
 	if ! [ -e $2 ]; then
 		ln -fs $1 $2
@@ -32,13 +35,18 @@ else
 	echo "Neobundle already installed"
 fi;
 
+echo "Setting git properties"
+git config --global user.email "Redyz"
+git config --global user.name "Redyz"
 
 mkdir -p ~/.newsbeuter
-
+mkdir -p ~/.config/terminator
 
 home_ln vim/.vimrc 
 home_ln tmux/.tmux
 home_ln tmux/.tmux.conf
+home_ln tmux/.tmuxsnapshot
 home_ln .bashrc
 home_ln newsbeuter/urls .newsbeuter/urls
 home_ln newsbeuter/config .newsbeuter/config
+home_ln terminator/config .config/terminator/config

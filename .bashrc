@@ -5,7 +5,7 @@ fi
 
 # User specific aliases and functions
 export LD_LIBRARY_PATH=${HOME}/bin/libevent/lib/:${LD_LIBRARY_PATH}
-export PATH=${HOME}/bin/tmux/bin:${PATH}
+export PATH=${HOME}/bin/tmux/bin:${PATH}:/home/reightb/Documents/scripts
 export MANPATH=${HOME}/bin/tmux/share/man:${MANPATH}
 # In order to work with 256 colors
 

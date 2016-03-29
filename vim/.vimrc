@@ -1,13 +1,14 @@
 "NeoBundle Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
+
 endif
 
 " Required:
-set runtimepath^=/home/reightb/.vim/bundle/neobundle.vim/
+set runtimepath^=~/.vim/bundle/neobundle.vim/
 
 " Required:
-call neobundle#begin(expand('/home/reightb/.vim/bundle'))
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:

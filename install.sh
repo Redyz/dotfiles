@@ -2,6 +2,14 @@
 #TODO: Patched fonts,
 #			 
 
+function important(){
+	length=${#1}
+	padding=$(python -c "print('='*$length)")
+	echo $padding
+	echo $1
+	echo $padding
+}
+
 function verify_ln(){
 	if ! [ -e $2 ]; then
 		ln -fs $1 $2
@@ -43,6 +51,8 @@ mkdir -p ~/.newsbeuter
 mkdir -p ~/.config/terminator
 
 home_ln vim/.vimrc 
+home_ln vim/ftplugin .vim/ftplugin
+home_ln vim/after .vim/after
 home_ln tmux/.tmux
 home_ln tmux/.tmux.conf
 home_ln tmux/.tmuxsnapshot
@@ -50,3 +60,5 @@ home_ln .bashrc
 home_ln newsbeuter/urls .newsbeuter/urls
 home_ln newsbeuter/config .newsbeuter/config
 home_ln terminator/config .config/terminator/config
+
+important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"

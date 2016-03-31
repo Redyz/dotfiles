@@ -2,12 +2,50 @@
 #TODO: Patched fonts,
 #			 
 
+quiet_mode=false
+while getopts ":q" opt; do
+	case $opt in
+		q)
+			echo "Quiet mode"
+			quiet_mode=true
+			;;
+	esac
+done
+
 function important(){
 	length=${#1}
 	padding=$(python -c "print('='*$length)")
 	echo $padding
 	echo $1
 	echo $padding
+}
+
+function no_prompt(){
+	echo "$@ [y/N] "
+	if [ "$quiet_mode" == true ] ; then echo N; return 0; fi
+	read -r -p "" response
+	case $response in
+			[yY]) 
+					return 1
+					;;
+			*)
+					return 0
+					;;
+	esac
+}
+
+function yes_prompt(){
+	echo "$@ [Y/n] "
+	if [ "$quiet_mode" == true ] ; then echo Y; return 1; fi
+	read -r -p "" response
+	case $response in
+			[nN]) 
+					return 1
+					;;
+			*)
+					return 0
+					;;
+	esac
 }
 
 function verify_ln(){
@@ -62,3 +100,9 @@ home_ln newsbeuter/config .newsbeuter/config
 home_ln terminator/config .config/terminator/config
 
 important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"
+if no_prompt "Compile YCM?"; then false;
+else
+	python $HOME/.vim/bundle/YouCompleteMe/install.py
+fi;
+
+echo Done!

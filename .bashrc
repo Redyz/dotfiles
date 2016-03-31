@@ -90,6 +90,8 @@ source ~/.private-bashrc
 #echo "If you're running in tty mode:"
 #echo "fbterm + TERM=fbterm tmux -2"
 
+alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
+
 ttop() {
 	watch "ps aux | sort -rk 3,3 | head -n 6"
 }

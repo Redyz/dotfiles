@@ -98,6 +98,7 @@ home_ln .bashrc
 home_ln newsbeuter/urls .newsbeuter/urls
 home_ln newsbeuter/config .newsbeuter/config
 home_ln terminator/config .config/terminator/config
+home_ln urxvt/.Xdefaults .Xdefaults 
 
 important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"
 if no_prompt "Compile YCM?"; then false;

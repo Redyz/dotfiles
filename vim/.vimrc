@@ -29,7 +29,7 @@ NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc.vim', {'build': {	'linux' : 'make'}}
+NeoBundle 'Shougo/vimproc.vim', {'build': { 'linux' : 'make'}}
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'rdnetto/YCM-Generator'
@@ -108,7 +108,7 @@ set hlsearch
 
 "Remember last position
 if has("autocmd")
-	  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 "Unite

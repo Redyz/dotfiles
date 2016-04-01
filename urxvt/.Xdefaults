@@ -1,6 +1,6 @@
-!URxvt*url-launcher:	/opt/firefox-aurora/firefox
+!URxvt*url-launcher:  /opt/firefox-aurora/firefox
 URxvt*background:                     #08090C
-URxvt*borderWidth:	1
+URxvt*borderWidth:  1
 !URxvt.background: #1a1b1c
 !URxvt.color0: #484848
 !URxvt.color10: #aad1ac
@@ -57,27 +57,27 @@ urxvt*background: black
 !URxvt*color9:    #FF8888
 !URxvt.foreground: #808080
 URxvt*cursorColor:                    #d1d4e0
-URxvt*font:		xft:Roboto Mono For Powerline:style=Regular:size=9
+URxvt*font:   xft:Roboto Mono For Powerline:style=Regular:size=9
 URxvt*foreground:                     #d1d4e0
 URxvt*highlightColor:                 #1f222d
 URxvt*highlightTextColor:             #C0C5CE
-URxvt*intensityStyles:	true
+URxvt*intensityStyles:  true
 URxvt*loginShell:       true
-URxvt*matcher.button:	1
-URxvt*perl-ext-common:	default,matcher
-URxvt*perl-lib:		/usr/lib/urxvt/perl/
-URxvt*scrollBar:	false
+URxvt*matcher.button: 1
+URxvt*perl-ext-common:  default,matcher
+URxvt*perl-lib:   /usr/lib/urxvt/perl/
+URxvt*scrollBar:  false
 URxvt*scrollColor:                    #d1d4e0
-URxvt*size-hints-honor:	true
-URxvt*termName:		rxvt-unicode-256color
-URxvt*tripleclickwords:	true
+URxvt*size-hints-honor: true
+URxvt*termName:   rxvt-unicode-256color
 URxvt*tripleclickwords: true
-!URxvt*urgentOnBell:	true
-URxvt.depth: 		32
-URxvt.matcher.pattern.1:	\\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
-uxterm*background:	black
-!uxterm*faceName:	Roboto Mono For Powerline:style=regular:size=11
-uxterm*foreground:	white
-xterm*background:	black
-!xterm*faceName:		Roboto Mono For Powerline:style=regular:size=11
-xterm*foreground:	white
+URxvt*tripleclickwords: true
+!URxvt*urgentOnBell:  true
+URxvt.depth:    32
+URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+uxterm*background:  black
+!uxterm*faceName: Roboto Mono For Powerline:style=regular:size=11
+uxterm*foreground:  white
+xterm*background: black
+!xterm*faceName:    Roboto Mono For Powerline:style=regular:size=11
+xterm*foreground: white

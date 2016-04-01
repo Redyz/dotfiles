@@ -100,6 +100,7 @@ set shiftwidth=2
 set smartindent
 set t_Co=256
 set tabstop=2
+set expandtab
 set title
 set ttymouse=xterm2
 set hlsearch

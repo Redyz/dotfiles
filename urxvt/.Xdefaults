@@ -81,3 +81,4 @@ uxterm*foreground:	white
 xterm*background:	black
 !xterm*faceName:		Roboto Mono For Powerline:style=regular:size=11
 xterm*foreground:	white
+URxvt.letterSpace: -1

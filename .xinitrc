@@ -1,5 +1,5 @@
 #!/bin/bash
-guake &
+guake -e "tmux -2" &
 xpad -s &
 dunst -config ~/Documents/scripts/dunst &
 wmname LG3D

@@ -91,6 +91,7 @@ mkdir -p ~/.config/terminator
 home_ln vim/.vimrc 
 home_ln vim/ftplugin .vim/ftplugin
 home_ln vim/after .vim/after
+home_ln vim/ultisnips .vim/UltiSnips
 home_ln tmux/.tmux
 home_ln tmux/.tmux.conf
 home_ln tmux/.tmuxsnapshot
@@ -103,7 +104,7 @@ home_ln urxvt/.Xdefaults .Xdefaults
 important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"
 if no_prompt "Compile YCM?"; then false;
 else
-  python $HOME/.vim/bundle/YouCompleteMe/install.py
+  python2.7 $HOME/.vim/bundle/YouCompleteMe/install.py
 fi;
 
 echo Done!

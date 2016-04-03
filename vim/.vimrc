@@ -15,15 +15,9 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
-"NeoBundle 'Shougo/neosnippet.vim'
-"NeoBundle 'Shougo/neosnippet-snippets'
-"NeoBundle 'Shougo/neocomplete.vim'
-"NeoBundle 'tpope/vim-fugitive'
-"NeoBundle 'vim-ctrlspace/vim-ctrlspace'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'vim-airline/vim-airline'
-"NeoBundle 'ervandew/supertab'
 NeoBundle 'szw/vim-tags'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'easymotion/vim-easymotion'
@@ -31,14 +25,12 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim', {'build': { 'linux' : 'make'}}
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'Raimondi/delimitMate'
-"NeoBundle 'fatih/vim-go'
-"NeoBundle 'mileszs/ack.vim'
-
-" You can specify revision/branch/tag.
-"NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+NeoBundle 'ervandew/supertab'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'rdnetto/YCM-Generator'
 
 " Required:
 call neobundle#end()
@@ -46,10 +38,7 @@ call neobundle#end()
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
 NeoBundleCheck
-"End NeoBundle Scripts-------------------------
 
 syntax on
 colorscheme busierbee 
@@ -128,21 +117,23 @@ let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " Ctags
 let g:vim_tags_auto_generate = 1
-"let g:vim_tags_project_tags_command = "{CTAGS} -R {OPTIONS} --c++-kinds=+p --fields=+iaS --extra=+q {DIRECTORY} 2>/dev/null"
 
-"let OmniCpp_NamespaceSearch = 1
-"let OmniCpp_MayCompleteDot = 1
-"
-"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" ack
-let g:ackprg = "ack -i --column"
-"let g:ack_default_options = " -i --column"
+"let g:UltiSnipsExpandTrigger = "<tab>"
+"let g:UltiSnipsJumpForwardTrigger = "<tab>"
+"let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" YCM
-let g:ycm_enable_diagonstic_signs = 0
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-"let g:ycm_key_invoke_completion = '<TAB>'
+"" YCM
+let g:ycm_collect_identifiers_from_comments_and_strings = 1 
+let g:ycm_complete_in_comments = 1 
 let g:ycm_confirm_extra_conf = 1
+"let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+let g:ycm_seed_identifiers_with_syntax = 1 
+let g:ycm_key_list_select_completion=['<Up>']
+let g:ycm_key_list_previous_completion=['<Down>']
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
-"runtime plugin/supertab.vim
+let g:UltiSnipsEditSplit="vertical"

@@ -1,6 +1,6 @@
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 # User specific aliases and functions
@@ -36,6 +36,8 @@ export TERM=screen-256color
 #export TERM=fbterm
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+PROMPT_DIRTRIM=2
 
 # Base16 Shell
 #BASE16_SHELL="$HOME/.config/base16-shell/base16-flat.dark.sh"
@@ -74,8 +76,8 @@ man() {
 }
 
 fix() {
-	reset
-	source ~/.bashrc
+  reset
+  source ~/.bashrc
 }
 
 ydl() {
@@ -83,7 +85,7 @@ ydl() {
 }
 
 min() {
-	fbterm; TERM=fbterm tmux -2
+  fbterm; TERM=fbterm tmux -2
 }
 source ~/.private-bashrc
 
@@ -92,6 +94,10 @@ source ~/.private-bashrc
 
 alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
+fixtabs(){
+  find . -type d -name ".git" -prune -o -type f  -exec sh -c 'expand -t 2 {} > {}tmp; mv {}tmp {}' \;
+}
+
 ttop() {
-	watch "ps aux | sort -rk 3,3 | head -n 6"
+  watch "ps aux | sort -rk 3,3 | head -n 6"
 }

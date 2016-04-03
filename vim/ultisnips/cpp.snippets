@@ -1,0 +1,24 @@
+snippet hclass "Class automagical" b
+#ifndef ${1/([A-Za-z0-9_]+).*/\U$1\E/}.H
+#define ${1/([A-Za-z0-9_]+).*/\U$1\E/}.H
+Class $1{
+	public:
+		$1();
+		~$1();
+	protected:
+	private:
+};
+#endif 
+endsnippet
+
+snippet cclass "Class automagical" b
+#include "$1.h"
+
+$1::$1(){
+
+}
+
+~$1::$1(){
+
+}
+endsnippet

@@ -3,11 +3,9 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-# User specific aliases and functions
 export LD_LIBRARY_PATH=${HOME}/bin/libevent/lib/:${LD_LIBRARY_PATH}
 export PATH=${HOME}/bin/tmux/bin:${PATH}:/home/reightb/Documents/scripts
 export MANPATH=${HOME}/bin/tmux/share/man:${MANPATH}
-# In order to work with 256 colors
 
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
@@ -29,19 +27,17 @@ if ! shopt -oq posix; then
   fi
 fi
 
+shopt -s checkwinsize
+
+alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 alias tmux='tmux -2'
+
 export EDITOR=vim
 export PS1="[\[$(tput sgr0)\]\[\033[38;5;245m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;46m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\h\[$(tput sgr0)\]:[\[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput sgr0)\]\[\033[38;5;154m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 export TERM=screen-256color
-#export TERM=fbterm
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
-PROMPT_DIRTRIM=2
-
-# Base16 Shell
-#BASE16_SHELL="$HOME/.config/base16-shell/base16-flat.dark.sh"
-#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+export PROMPT_DIRTRIM=2
 
 ddp () {
  sudo kill -USR1 $(pgrep ^dd)
@@ -49,11 +45,6 @@ ddp () {
 
 no () { 
   [ -f ~/T/$1.v ] && vim ~/T/$1.v || ls ~/T;
-}
-
-startxx () {
-  startx /home/reightb/Documents/git/dwm/dwm -- -dpi 85
-  /home/reightb/Documents/scripts/laptop-scripts/dwm-script &
 }
 
 ttop () {
@@ -87,12 +78,6 @@ ydl() {
 min() {
   fbterm; TERM=fbterm tmux -2
 }
-source ~/.private-bashrc
-
-#echo "If you're running in tty mode:"
-#echo "fbterm + TERM=fbterm tmux -2"
-
-alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
 fixtabs(){
   find . -type d -name ".git" -prune -o -type f  -exec sh -c 'expand -t 2 {} > {}tmp; mv {}tmp {}' \;
@@ -101,3 +86,11 @@ fixtabs(){
 ttop() {
   watch "ps aux | sort -rk 3,3 | head -n 6"
 }
+
+source ~/.private-bashrc
+
+PATH="/home/reightb/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/home/reightb/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/reightb/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/reightb/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/reightb/perl5"; export PERL_MM_OPT;

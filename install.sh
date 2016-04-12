@@ -104,7 +104,7 @@ home_ln urxvt/.Xdefaults .Xdefaults
 important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"
 if no_prompt "Compile YCM?"; then false;
 else
-  python2.7 $HOME/.vim/bundle/YouCompleteMe/install.py
+  python2.7 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
 fi;
 
 echo Done!

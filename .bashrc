@@ -38,6 +38,7 @@ export TERM=screen-256color
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PROMPT_DIRTRIM=2
+export DESKTOP_SESSION=kde 
 
 ddp () {
  sudo kill -USR1 $(pgrep ^dd)

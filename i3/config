@@ -149,11 +149,38 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym Mod1+Tab focus right
-bindsym Mod1+Shift+Tab focus left
+set $up k
+set $down j
+set $left h
+set $right lo
+
+#tray_output primary
+
+#taken mostly from http://dotshare.it/dots/1011/
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer sset 'Master' toggle
+bindsym XF86AudioPlay exec --no-startup-id playcontrols toggle
+bindsym XF86AudioStop exec --no-startup-id playcontrols stop
+bindsym XF86AudioPrev exec --no-startup-id playcontrols prev
+bindsym XF86AudioNext exec --no-startup-id playcontrols next
+bindsym XF86Calculator exec --no-startup-id gnome-calculator 
+bindsym XF86TouchpadToggle exec --no-startup-id /home/luca/Documenti/toggletouchpad
+
+bindsym Mod4+F12 exec --no-startup-id amixer -c 1 sset 'Master' 5%+
+bindsym Mod4+F11 exec --no-startup-id amixer -c 1 sset 'Master' 5%-
+bindsym Mod4+F10 exec --no-startup-id amixer sset 'Master' toggle
+bindsym Mod4+Down exec --no-startup-id playcontrols toggle
+bindsym Mod4+Up exec --no-startup-id playcontrols stop
+bindsym Mod4+Left exec --no-startup-id playcontrols prev
+bindsym Mod4+Right exec --no-startup-id playcontrols next
+
+# Force floating for all new windows
+for_window [class="[.]*"] floating enable
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+        status_command py3status -c ~/.config/i3/.i3status.conf
+        tray_output DVI-I-1
 }

@@ -82,3 +82,4 @@ xterm*background:	black
 xterm*foreground:	white
 URxvt.letterSpace: -1
 xterm*foreground: white
+URxvt*perl-ext-common:      default,matcher,clipboard

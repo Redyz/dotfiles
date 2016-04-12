@@ -31,6 +31,7 @@ NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'rdnetto/YCM-Generator'
+NeoBundle 'wesQ3/vim-windowswap'
 
 " Required:
 call neobundle#end()

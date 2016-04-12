@@ -98,6 +98,8 @@ home_ln tmux/.tmuxsnapshot
 home_ln .bashrc
 home_ln newsbeuter/urls .newsbeuter/urls
 home_ln newsbeuter/config .newsbeuter/config
+home_ln i3/config .config/i3/config
+home_ln i3/.i3status.conf .i3status.conf
 home_ln terminator/config .config/terminator/config
 home_ln urxvt/.Xdefaults .Xdefaults 
 home_ln htoprc .config/htop/htoprc
@@ -105,7 +107,7 @@ home_ln htoprc .config/htop/htoprc
 important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"
 if no_prompt "Compile YCM?"; then false;
 else
-  python2.7 $HOME/.vim/bundle/YouCompleteMe/install.py
+  python2.7 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
 fi;
 
 echo Done!

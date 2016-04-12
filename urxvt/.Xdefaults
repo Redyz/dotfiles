@@ -71,14 +71,15 @@ URxvt*scrollColor:                    #d1d4e0
 URxvt*size-hints-honor: true
 URxvt*termName:   rxvt-unicode-256color
 URxvt*tripleclickwords: true
-URxvt*tripleclickwords: true
-!URxvt*urgentOnBell:  true
-URxvt.depth:    32
-URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
-uxterm*background:  black
-!uxterm*faceName: Roboto Mono For Powerline:style=regular:size=11
-uxterm*foreground:  white
-xterm*background: black
-!xterm*faceName:    Roboto Mono For Powerline:style=regular:size=11
+!URxvt*urgentOnBell:	true
+URxvt.depth: 		32
+URxvt.matcher.pattern.1:	\\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+uxterm*background:	black
+!uxterm*faceName:	Roboto Mono For Powerline:style=regular:size=11
+uxterm*foreground:	white
+xterm*background:	black
+!xterm*faceName:		Roboto Mono For Powerline:style=regular:size=11
+xterm*foreground:	white
+URxvt.letterSpace: -1
 xterm*foreground: white
 URxvt*perl-ext-common:      default,matcher,clipboard

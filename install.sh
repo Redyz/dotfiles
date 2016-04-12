@@ -98,6 +98,8 @@ home_ln tmux/.tmuxsnapshot
 home_ln .bashrc
 home_ln newsbeuter/urls .newsbeuter/urls
 home_ln newsbeuter/config .newsbeuter/config
+home_ln i3/config .config/i3/config
+home_ln i3/.i3status.conf .i3status.conf
 home_ln terminator/config .config/terminator/config
 home_ln urxvt/.Xdefaults .Xdefaults 
 

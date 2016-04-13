@@ -104,6 +104,7 @@ home_ln terminator/config .config/terminator/config
 home_ln urxvt/.Xdefaults .Xdefaults 
 home_ln htoprc .config/htop/htoprc
 home_ln qutebrowser/keys.conf .config/qutebrowser/keys.conf
+home_ln qutebrowser/qutebrowser.conf .config/qutebrowser/qutebrowser.conf
 
 important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"
 if no_prompt "Compile YCM?"; then false;

@@ -94,6 +94,17 @@ set expandtab
 set title
 set ttymouse=xterm2
 set hlsearch
+"set foldmethod=indent
+"let g:is_bash = 1
+"let g:sh_fold_enabled = 3
+"set foldcolumn=2
+"set foldlevel=3
+set foldenable
+set foldnestmax=2
+set foldmethod=indent
+"au filetype sh let g:sh_fold_enabled=3
+"au filetype sh let g:is_bash=1
+syntax enable
 
 "au !BufRead /tmp/mutt* source ~/.mutt/address-search.vim
 

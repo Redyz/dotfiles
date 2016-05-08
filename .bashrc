@@ -4,7 +4,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 export LD_LIBRARY_PATH=${HOME}/bin/libevent/lib/:${LD_LIBRARY_PATH}
-export PATH=${HOME}/bin/tmux/bin:${PATH}:/home/reightb/Documents/scripts
+export PATH=${HOME}/bin/tmux/bin:${PATH}:${HOME}/Documents/scripts
 export MANPATH=${HOME}/bin/tmux/share/man:${MANPATH}
 
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then

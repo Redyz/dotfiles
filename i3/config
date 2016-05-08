@@ -93,40 +93,34 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# switch to workspace
-bindsym $mod+1 workspace main
-bindsym $mod+2 workspace web
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
 
-#bindsym $mod+1 exec "i3-msg workspace 1 main; i3-msg scratchpad show"
-#bindsym $mod+2 exec "i3-msg workspace 2 web; i3-msg scratchpad show"
-#bindsym $mod+3 exec "i3-msg workspace 3; i3-msg scratchpad show"
-#bindsym $mod+4 exec "i3-msg workspace 4; i3-msg scratchpad show"
-#bindsym $mod+5 exec "i3-msg workspace 5; i3-msg scratchpad show"
-#bindsym $mod+6 exec "i3-msg workspace 6; i3-msg scratchpad show"
-#bindsym $mod+7 exec "i3-msg workspace 7; i3-msg scratchpad show"
-#bindsym $mod+8 exec "i3-msg workspace 8; i3-msg scratchpad show"
-#bindsym $mod+9 exec "i3-msg workspace 9; i3-msg scratchpad show"
-#bindsym $mod+0 exec "i3-msg workspace 10; i3-msg scratchpad show"
+set $one main
+set $two www
+# switch to workspace
+bindsym $mod+1 workspace number 1 $one
+bindsym $mod+2 workspace number 2 $two
+bindsym $mod+3 workspace number 3 $three
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+assign [class="qutebrowser"] 2 $two
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace number 1 $one
+bindsym $mod+Shift+2 move container to workspace number 2 $two
+bindsym $mod+Shift+3 move container to workspace number 3 $three
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -167,15 +161,12 @@ client.unfocused        #191919 #191919 #999999
 client.urgent           #cd989a #cd989a #2e3436
 client.background       #121212
 
-bindsym $mod+Tab focus up
-bindsym $mod+Shift+Tab focus down
+bindsym $mod+Tab focus up focus right
+bindsym $mod+Shift+Tab focus down focus left
 
 bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave move scratchpad
 
-assign [class="qutebrowser"] → 2: web
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
 	status_command py3status
 	position top

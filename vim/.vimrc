@@ -32,6 +32,7 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'wesQ3/vim-windowswap'
+NeoBundle 'tmux-plugins/vim-tmux'
 
 " Required:
 call neobundle#end()

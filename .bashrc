@@ -28,6 +28,7 @@ if ! shopt -oq posix; then
 fi
 
 shopt -s checkwinsize
+shopt -s expand_aliases
 
 alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 alias tmux='tmux -2'
@@ -39,6 +40,7 @@ export TERMINAL=terminator
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PROMPT_DIRTRIM=2
+export TERMINAL=terminator
 
 ddp () {
  watch sudo kill -USR1 $(pgrep ^dd)
@@ -88,7 +90,14 @@ ttop() {
   watch "ps aux | sort -rk 3,3 | head -n 6"
 }
 
+dolphin() {
+  DESKTOP_SESSION=kde /usr/bin/dolphin 
+  notify-send "DANK MEMES"
+}
+
 source ~/.private-bashrc
+
+QT_QPA_PLATFORMTHEME=kde
 
 PATH="/home/reightb/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="/home/reightb/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;

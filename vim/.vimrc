@@ -78,6 +78,7 @@ ino <up> <Nop>
 ino <down> <Nop>
 
 nmap <Leader><Leader>W <Plug>(easymotion-b)
+nmap <F8> :TagbarToggle<CR>
 
 set hidden
 set backspace=indent,eol,start

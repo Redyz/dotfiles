@@ -95,6 +95,17 @@ dolphin() {
   notify-send "DANK MEMES"
 }
 
+mkback() {
+  name=`basename $1`
+  cd `dirname $1`
+  if [ -f "$name.back" ]; then
+    echo "Overwriting $name.back"
+  else
+    echo "Creating backup $name.back"
+  fi;
+  cp "$name" "$name.back"
+}
+
 source ~/.private-bashrc
 
 QT_QPA_PLATFORMTHEME=kde

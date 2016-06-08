@@ -35,11 +35,13 @@ NeoBundle 'wesQ3/vim-windowswap'
 NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'vim-scripts/a.vim'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'embear/vim-localvimrc'
 
 " Required:
 call neobundle#end()
 
 " Required:
+filetype plugin on
 filetype plugin indent on
 
 NeoBundleCheck
@@ -78,13 +80,22 @@ ino <up> <Nop>
 ino <down> <Nop>
 
 nmap <Leader><Leader>W <Plug>(easymotion-b)
+nmap <F8> :TagbarToggle<CR>
 
-set hidden
 set backspace=indent,eol,start
+set clipboard=unnamed
+set expandtab
+set exrc
+set foldenable
+set foldmethod=indent
+set foldnestmax=2
+set hidden
+set hlsearch
 set laststatus=2 "Force 2 lines status
 set matchtime=2
 set mouse=a
 set nocp
+set nofoldenable
 set noswapfile
 set nowrap
 set number
@@ -93,24 +104,10 @@ set shiftwidth=2
 set smartindent
 set t_Co=256
 set tabstop=2
-set expandtab
 set title
 set ttymouse=xterm2
-set hlsearch
-"set foldmethod=indent
-"let g:is_bash = 1
-"let g:sh_fold_enabled = 3
-"set foldcolumn=2
-"set foldlevel=3
-set foldenable
-set foldnestmax=2
-set foldmethod=indent
-set nofoldenable
-"au filetype sh let g:sh_fold_enabled=3
-"au filetype sh let g:is_bash=1
+au BufNewFile,BufRead */LOG635*/* setlocal ts=10
 syntax enable
-
-"au !BufRead /tmp/mutt* source ~/.mutt/address-search.vim
 
 "Remember last position
 if has("autocmd")

@@ -32,6 +32,9 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'wesQ3/vim-windowswap'
+NeoBundle 'tmux-plugins/vim-tmux'
+NeoBundle 'vim-scripts/a.vim'
+NeoBundle 'airblade/vim-gitgutter'
 
 " Required:
 call neobundle#end()
@@ -94,6 +97,18 @@ set expandtab
 set title
 set ttymouse=xterm2
 set hlsearch
+"set foldmethod=indent
+"let g:is_bash = 1
+"let g:sh_fold_enabled = 3
+"set foldcolumn=2
+"set foldlevel=3
+set foldenable
+set foldnestmax=2
+set foldmethod=indent
+set nofoldenable
+"au filetype sh let g:sh_fold_enabled=3
+"au filetype sh let g:is_bash=1
+syntax enable
 
 "au !BufRead /tmp/mutt* source ~/.mutt/address-search.vim
 
@@ -101,6 +116,9 @@ set hlsearch
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "Unite
 nnoremap <space>l :Unite file_rec/async<CR>

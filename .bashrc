@@ -28,6 +28,7 @@ if ! shopt -oq posix; then
 fi
 
 shopt -s checkwinsize
+shopt -s expand_aliases
 
 alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 alias tmux='tmux -2'
@@ -39,9 +40,10 @@ export TERMINAL=terminator
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PROMPT_DIRTRIM=2
+export TERMINAL=terminator
 
 ddp () {
- sudo kill -USR1 $(pgrep ^dd)
+ watch sudo kill -USR1 $(pgrep ^dd)
 }
 
 no () { 
@@ -88,10 +90,15 @@ ttop() {
   watch "ps aux | sort -rk 3,3 | head -n 6"
 }
 
+dolphin() {
+  DESKTOP_SESSION=kde /usr/bin/dolphin 
+  notify-send "DANK MEMES"
+}
+
 source ~/.private-bashrc
 
-PATH="/home/reightb/perl5/bin${PATH+:}${PATH}"; export PATH;
-PERL5LIB="/home/reightb/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/reightb/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/reightb/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/reightb/perl5"; export PERL_MM_OPT;
+QT_QPA_PLATFORMTHEME=kde
+
+PROMPT_COMMAND='history -a'export PROMPT_COMMAND='history -a'
+
+#[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

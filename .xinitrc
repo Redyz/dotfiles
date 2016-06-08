@@ -1,6 +1,6 @@
 #!/bin/bash
 guake -e "tmux -2" &
-xpad -s &
+xpad -sN &
 dunst -config $HOME/Documents/scripts/dunst &
 #wmname LG3D
 xbindkeys &

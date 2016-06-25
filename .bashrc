@@ -92,7 +92,10 @@ ttop() {
 
 dolphin() {
   DESKTOP_SESSION=kde /usr/bin/dolphin 
-  notify-send "DANK MEMES"
+}
+
+quteproxy() {
+  qutebrowser -s network proxy "socks://localhost:8080"
 }
 
 mkback() {
@@ -104,6 +107,10 @@ mkback() {
     echo "Creating backup $name.back"
   fi;
   cp "$name" "$name.back"
+}
+
+notes() {
+  vim -c "RecentNotes"
 }
 
 source ~/.private-bashrc

@@ -154,3 +154,4 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Vimnotes
 let g:notes_directories = ['~/Documents/git/notes/']
+let g:notes_title_sync = 'change_title'

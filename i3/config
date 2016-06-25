@@ -22,8 +22,8 @@ bindsym $mod+h focus left
 bindsym $mod+k focus down
 bindsym $mod+j focus up
 bindsym $mod+l focus right
-bindsym $mod+Tab focus down focus right
-bindsym $mod+Shift+Tab focus up focus left
+bindsym $mod+Tab focus right
+bindsym $mod+Shift+Tab focus left
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left

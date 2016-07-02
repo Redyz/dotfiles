@@ -32,9 +32,11 @@ shopt -s expand_aliases
 
 alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 alias tmux='tmux -2'
+alias ayy='echo lmao'
 
 export EDITOR=vim
-export PS1="[\[$(tput sgr0)\]\[\033[38;5;245m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;46m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\h\[$(tput sgr0)\]:[\[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput sgr0)\]\[\033[38;5;154m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+#export PS1="[\[$(tput sgr0)\]\[\033[38;5;245m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;46m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput bold)\]\h\[$(tput sgr0)\]:[\[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput sgr0)\]\[\033[38;5;154m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+export PS1="[\[$(tput sgr0)\]\[\033[38;5;245m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;46m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\e[3$(( ${#HOSTNAME} * 10000 / 32767 + 1 ))m\[$(tput bold)\]\h\[$(tput sgr0)\]:[\[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput sgr0)\]\[\033[38;5;154m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 export TERM=screen-256color
 export TERMINAL=terminator
 export GOPATH=$HOME/go
@@ -111,6 +113,10 @@ mkback() {
 
 notes() {
   vim -c "RecentNotes"
+}
+
+man_python() {
+   python -c "import $1; help($1)"
 }
 
 source ~/.private-bashrc

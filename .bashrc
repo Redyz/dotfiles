@@ -3,6 +3,8 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
+source /usr/share/git/git-prompt.sh
+
 export LD_LIBRARY_PATH=${HOME}/bin/libevent/lib/:${LD_LIBRARY_PATH}
 export PATH=${HOME}/bin/tmux/bin:${PATH}:/home/reightb/Documents/scripts
 export MANPATH=${HOME}/bin/tmux/share/man:${MANPATH}
@@ -41,17 +43,16 @@ bold=$(    tput bold )
 under=$(   tput smul )
 
 # Unstyled colors
-black=$(   tput setaf 0 || tput AF 0 )
-red=$(     tput setaf 1 || tput AF 1 )
-green=$(   tput setaf 2 || tput AF 2 )
-yellow=$(  tput setaf 3 || tput AF 3 )
-blue=$(    tput setaf 4 || tput AF 4 )
-magenta=$( tput setaf 5 || tput AF 5 )
-cyan=$(    tput setaf 6 || tput AF 6 )
-white=$(   tput setaf 7 || tput AF 7 )
-export PS1='[\A]\u@\h:[\w] '
-#export PS1="[@\e[3$(( ${#HOSTNAME} * 10000 / 32767 + 1 ))m\[$(tput bold)\]\h\[$(tput sgr0)\]:[\[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput sgr0)\]\[\033[38;5;154m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-#export PS1="[\[$(tput sgr0)\]\[\033[38;5;245m\]\A\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;46m\]\u\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]@\e[3$(( ${#HOSTNAME} * 10000 / 32767 + 1 ))m\[$(tput bold)\]\h\[$(tput sgr0)\]:[\[$(tput sgr0)\]\[\033[38;5;10m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]]\[$(tput sgr0)\]\[\033[38;5;154m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+black=$(   tput setaf 0 )
+red=$(     tput setaf 1 )
+green=$(   tput setaf 2 )
+yellow=$(  tput setaf 3 )
+blue=$(    tput setaf 4 )
+magenta=$( tput setaf 5 )
+cyan=$(    tput setaf 6 )
+white=$(   tput setaf 7 )
+export PS1='[\[\e[90m\]\A\[$white]\]\[\e[92m\]\u\[$white\]@\[\e[$(echo ${#HOSTNAME} % 7 + 88 | bc)m\]\h\[$white\]:[\w] $(__git_ps1 "\[\e[90m\](%s) ")\[$white\]'
+export GIT_PS1_SHOWDIRTYSTATE=1
 export TERM=screen-256color
 export TERMINAL=terminator
 export GOPATH=$HOME/go

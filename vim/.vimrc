@@ -36,6 +36,8 @@ NeoBundle 'tmux-plugins/vim-tmux'
 NeoBundle 'vim-scripts/a.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'embear/vim-localvimrc'
+NeoBundle 'xolox/vim-notes'
+NeoBundle 'xolox/vim-misc'
 
 " Required:
 call neobundle#end()
@@ -148,3 +150,8 @@ let g:ycm_key_list_previous_completion=['<Up>']
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let g:UltiSnipsEditSplit="vertical"
+
+
+" Vimnotes
+let g:notes_directories = ['~/Documents/git/notes/']
+let g:notes_title_sync = 'change_title'

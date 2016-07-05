@@ -99,10 +99,11 @@ mkdir -p ~/.newsbeuter
 mkdir -p ~/.config/terminator
 
 home_ln .bashrc
-home_ln .dunstrc
+home_ln .dunstrc .config/dunst/dunstrc
 home_ln htoprc .config/htop/htoprc
 home_ln i3/.i3status.conf .config/i3/.i3status.conf
 home_ln i3/config .config/i3/config
+home_ln rofi .config/rofi/config
 home_ln newsbeuter/config .newsbeuter/config
 home_ln newsbeuter/urls .newsbeuter/urls
 home_ln qutebrowser/keys.conf .config/qutebrowser/keys.conf

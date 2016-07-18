@@ -61,7 +61,7 @@ function verify_ln(){
 
 function home_ln(){
   if ! [ -z ${2+x} ]; then
-    mkdir -p $(dirname $2)
+    mkdir -p ~/$(dirname $2)
     verify_ln ~/Documents/git/dotfiles/$1 ~/$2
   else
     verify_ln ~/Documents/git/dotfiles/$1 ~/$(basename $1)

@@ -163,6 +163,13 @@ man_python() {
    python -c "import $1; help($1)"
 }
 
+current_term=$(ps -p $(ps -p $$ -o ppid=) o args=)
+if [[ "$current_term" == "urxvt" ]]; then
+  if [[ "$TMUX" == "" ]]; then
+    exec tmux -2
+  fi
+fi
+
 alias urxvt="urxvt -e tmux"
 
 source ~/.private-bashrc

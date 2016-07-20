@@ -16,6 +16,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'szw/vim-tags'
@@ -151,6 +153,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let g:UltiSnipsEditSplit="vertical"
 
+let g:airline_theme="serene"
 
 " Vimnotes
 let g:notes_directories = ['~/Documents/git/notes/']

@@ -100,14 +100,16 @@ mkdir -p ~/.config/terminator
 
 home_ln .bashrc
 home_ln .dunstrc .config/dunst/dunstrc
+home_ln compton.conf .config/compton.conf
 home_ln htoprc .config/htop/htoprc
 home_ln i3/.i3status.conf .config/i3/.i3status.conf
 home_ln i3/config .config/i3/config
-home_ln rofi .config/rofi/config
+home_ln mpd/mpd.conf .mpd/mpd.conf
 home_ln newsbeuter/config .newsbeuter/config
 home_ln newsbeuter/urls .newsbeuter/urls
 home_ln qutebrowser/keys.conf .config/qutebrowser/keys.conf
 home_ln qutebrowser/qutebrowser.conf .config/qutebrowser/qutebrowser.conf
+home_ln rofi .config/rofi/config
 home_ln terminator/config .config/terminator/config
 home_ln tmux/.tmux
 home_ln tmux/.tmux.conf
@@ -117,7 +119,6 @@ home_ln vim/.vimrc
 home_ln vim/after .vim/after
 home_ln vim/ftplugin .vim/ftplugin
 home_ln vim/ultisnips .vim/UltiSnips
-home_ln mpd/mpd.conf .mpd/mpd.conf
 
 #MPD
 touch_and_create "$HOME/.mpd/mpd.pid"

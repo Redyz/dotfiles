@@ -48,7 +48,7 @@ function timer_stop {
 }
 
 show_length(){
-	if [ "$timer_show" -gt "20" ]; then
+	if [ "0$timer_show" -gt "20" ]; then
 		h=`expr $timer_show / 3600`
     m=`expr $timer_show  % 3600 / 60`
     s=`expr $timer_show % 60`
@@ -162,6 +162,8 @@ notes() {
 man_python() {
    python -c "import $1; help($1)"
 }
+
+alias urxvt="urxvt -e tmux"
 
 source ~/.private-bashrc
 

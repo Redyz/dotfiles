@@ -1,0 +1,3 @@
+[submodule "rofi-scripts"]
+	path = rofi-scripts
+	url = https://github.com/carnager/rofi-scripts

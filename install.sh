@@ -119,6 +119,7 @@ home_ln vim/.vimrc
 home_ln vim/after .vim/after
 home_ln vim/ftplugin .vim/ftplugin
 home_ln vim/ultisnips .vim/UltiSnips
+home_ln surfraw .config/surfraw/conf
 
 #MPD
 touch_and_create "$HOME/.mpd/mpd.pid"

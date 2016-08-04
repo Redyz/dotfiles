@@ -196,8 +196,11 @@ bar {
 }
 
 #exec --no-startup-id gnome-settings-daemon
-exec /usr/libexec/gnome-settings-daemon
-exec autocutsel -fork &
-exec autocutsel -selection PRIMARY -fork &
-exec --no-startup-id compton -CGb
+exec --no-startup-id /usr/libexec/gnome-settings-daemon &
+exec --no-startup-id autocutsel -fork &
+exec --no-startup-id autocutsel -selection PRIMARY -fork &
+exec --no-startup-id compton -CGb &
+exec --no-startup-id tilda &
+exec --no-startup-id dunst -config ~/.dunstrc &
+exec --no-startup-id hsetroot -solid '#000000' &
 exec --no-startup-id i3-msg "workspace number 1"

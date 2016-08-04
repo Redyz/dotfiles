@@ -1,6 +1,6 @@
-setlocal tabstop=10                                                                                                                                
+set tabstop=2                                                                                                                               
 "setlocal softtabstop=4                                                                                                                            
 "setlocal shiftwidth=4                                                                                                                             
-setlocal textwidth=80                                                                                                                             
+"set textwidth=80                                                                                                                             
 "setlocal smarttab                                                                                                                                 
 "setlocal expandtab 

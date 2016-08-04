@@ -8,3 +8,6 @@ setxkbmap -layout "us,ca" -option grp:ctrl_alt_toggle
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 /usr/lib/kdeconnectd &
 exec /usr/bin/i3
+
+
+virtualbox --startvm NEON --fullscreen

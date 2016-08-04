@@ -14,6 +14,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+p exec rofi -show run 
 bindsym $mod+o exec $HOME/Documents/git/dotfiles/rofi-scripts/i3_switch_workspace.sh
 
+bindsym $mod+Ctrl+l exec i3lock -g -c 000000 -n
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+k focus down
@@ -180,17 +182,17 @@ bar {
 	position top
 	tray_output primary
 	colors {
-		background #101010
-		statusline #605c5a
-		focused_workspace #101010 #101010 #b72f62
-		active_workspace #5f5f5f #101010 #101010
-		inactive_workspace #101010 #101010 #5f5f5f
-   	urgent_workspace #2e3436 #9a878f
-	}
+  	background #101010
+  	statusline #454545
+  	focused_workspace #825969 #191919
+  	active_workspace #825969 #101010
+  	inactive_workspace #9a878f #191919
+  	urgent_workspace #2e3436 #9a878f
+  }
 }
 
-exec /usr/libexec/gnome-settings-daemon
-exec autocutsel -fork &
-exec autocutsel -selection PRIMARY -fork &
+exec --no-startup-id /usr/libexec/gnome-settings-daemon &
+exec --no-startup-id autocutsel -fork &
+#exec --no-startup-id autocutsel -selection PRIMARY -fork &
 exec --no-startup-id compton -CGb
-exec --no-startup-id i3-msg "workspace number 1"
+#exec --no-startup-id i3-msg "workspace number 1"

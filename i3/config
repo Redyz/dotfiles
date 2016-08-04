@@ -171,6 +171,7 @@ popup_during_fullscreen smart
 for_window [class="chromium"] floating disable
 for_window [class="qutebrowser"] floating disable
 for_window [class="Kdevelop"] floating disable
+for_window [class="URxvt"] border pixel 1
 assign [class="xpad"] $one
 assign [class="qutebrowser"] $two
 assign [class="chromium"] $two

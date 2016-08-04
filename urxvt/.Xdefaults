@@ -57,7 +57,7 @@ urxvt*background: black
 !URxvt*color9:    #FF8888
 !URxvt.foreground: #808080
 URxvt*cursorColor:                    #d1d4e0
-URxvt*font: xft:Roboto Mono For Powerline:pixelsize=14,xft:Inconsolata\ for\ Powerline:pixelsize=12⇧
+URxvt*font: xft:Roboto Mono For Powerline:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=12⇧
 !URxvt*font:   xft:Roboto Mono For Powerline:style=Regular:size=9
 URxvt*foreground:                     #d1d4e0
 URxvt*highlightColor:                 #1f222d

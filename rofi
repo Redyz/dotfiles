@@ -18,3 +18,5 @@ rofi.color-active:                   argb:00000000, #aa1, argb:11FFFFFF, #aa1,#3
 rofi.color-window:                   argb:ee333333, #1aa,#1aa
 ! Separator style (none, dash, solid)
 rofi.separator-style:                dash
+
+rofi.modi: run,window

@@ -60,26 +60,27 @@ show_length(){
 	fi;
 }
 
-reset=$(   tput sgr0 )
-bold=$(    tput bold )
-under=$(   tput smul )
+get_username(){
+  if [ "$USER" != "reightb" ]; then
+    printf "$USER$white@";
+  else
+    printf "";
+    # Don't display anything
+  fi;
+}
 
 # Unstyled colors
-black=$(   tput setaf 0 )
-red=$(     tput setaf 1 )
-green=$(   tput setaf 2 )
-yellow=$(  tput setaf 3 )
-blue=$(    tput setaf 4 )
-magenta=$( tput setaf 5 )
-cyan=$(    tput setaf 6 )
-white=$(   tput setaf 7 )
+red="$(echo -e "\e[31m")"
+green="$(echo -e "\e[32m")"
+yellow="$(echo -e "\e[93m")"
+white="$(echo -e "\e[97m")"
 trap 'timer_start' DEBUG
 if [ "$PROMPT_COMMAND" == "" ]; then
   PROMPT_COMMAND="timer_stop"
 else
   PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
 fi
-export PS1='\[$(show_length)\]\[\e[92m\]\u\[$white\]@\[\e[$(echo ${#HOSTNAME} % 7 + 88 | bc)m\]\h\[$white\][\w] $(__git_ps1 "\[\e[90m\](%s) ")\[$white\]'
+export PS1='\[$(show_length)\]\[\e[92m\]$(get_username)\[$white\]\[\e[$(echo ${#HOSTNAME} % 6 + 30 | bc)m\]\h \[$white\]\w $(__git_ps1 "\[\e[90m\](%s) ")\[$white\]'
 export GIT_PS1_SHOWDIRTYSTATE=1
 export TERM=screen-256color
 export TERMINAL=terminator
@@ -134,10 +135,6 @@ fixtabs(){
 
 ttop() {
   watch "ps aux | sort -rk 3,3 | head -n 6"
-}
-
-dolphin() {
-  DESKTOP_SESSION=kde /usr/bin/dolphin 
 }
 
 quteproxy() {

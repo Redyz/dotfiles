@@ -149,7 +149,10 @@ bindsym Mod4+Up exec --no-startup-id playcontrols stop
 bindsym Mod4+Left exec --no-startup-id playcontrols prev
 bindsym Mod4+Right exec --no-startup-id playcontrols next
 
-for_window [class="[.]*"] floating enable
+for_window [class="mapgen_[.]*"] floating enable
+for_window [class="mapgen_Debug"] floating enable
+for_window [class="mapgen"] floating enable
+#for_window [class="[.]*"] floating enable
 
 workspace_auto_back_and_forth yes
 
@@ -168,10 +171,17 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 mouse_warping output
 popup_during_fullscreen smart
 
+# Floating
 for_window [class="chromium"] floating disable
 for_window [class="qutebrowser"] floating disable
 for_window [class="Kdevelop"] floating disable
+for_window [class="hexchat"] floating disable
+for_window [title="Tools.*"] floating enable
+
+# Borders
 for_window [class="URxvt"] border pixel 1
+
+# Workspaces
 assign [class="xpad"] $one
 assign [class="qutebrowser"] $two
 assign [class="chromium"] $two
@@ -192,10 +202,12 @@ bar {
   }
 }
 
+bindsym Print exec scrot -d 2 -u -e 'notify-send "Screenie taken ($f)" && mv $f ~/Blog/next/'
 exec --no-startup-id autocutsel -fork &
 #exec --no-startup-id autocutsel -selection PRIMARY -fork &
 exec --no-startup-id compton -CGb &
 exec --no-startup-id tilda &
+exec --no-startup-id redshift &
 exec --no-startup-id dunst -config ~/.dunstrc &
 exec --no-startup-id hsetroot -solid '#000000' &
 exec --no-startup-id i3-msg "workspace number 1"

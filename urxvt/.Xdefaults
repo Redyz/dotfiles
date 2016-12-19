@@ -17,7 +17,8 @@
 URxvt*background:                     #08090C
 URxvt*borderWidth:  1
 URxvt*cursorColor:                    #d1d4e0
-URxvt*font: xft:Roboto Mono For Powerline:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=12⇧
+!URxvt*font: xft:Roboto Mono For Powerline:pixelsize=12,xft:Inconsolata\ for\ Powerline:pixelsize=12⇧
+URxvt*font: xft:GohuFont Powerline:style=Powerline:pixelsize=13
 URxvt*foreground:                     #d1d4e0
 URxvt*highlightColor:                 #1f222d
 URxvt*highlightTextColor:             #C0C5CE

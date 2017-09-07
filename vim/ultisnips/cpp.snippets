@@ -1,18 +1,5 @@
-snippet classh "Class automagical" b
-#ifndef ${1/([A-Za-z0-9_]+).*/\U$1\E/}_H
-#define ${1/([A-Za-z0-9_]+).*/\U$1\E/}_H
-class $1{
-	public:
-		$1();
-		~$1();
-	protected:
-	private:
-};
-#endif 
-endsnippet
-
-snippet classc "Class automagical" b
-#include "$1.h"
+snippet classcpp "Class automagical" b
+#include "${1/([A-Za-z0-9_]+).*/\L$1\E/}.hpp"
 
 $1::$1(){
 
@@ -22,3 +9,15 @@ $1::~$1(){
 
 }
 endsnippet
+snippet classhpp "Class automagical" b
+#pragma once
+
+class $1{
+	public:
+		$1();
+		~$1();
+	protected:
+	private:
+};
+endsnippet
+

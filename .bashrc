@@ -83,11 +83,10 @@ fi
 export PS1='\[$(show_length)\]\[\e[92m\]$(get_username)\[$white\]\[\e[$(echo ${#HOSTNAME} % 6 + 30 | bc)m\]\h \[$white\]\w $(__git_ps1 "\[\e[90m\](%s) ")\[$white\]'
 export GIT_PS1_SHOWDIRTYSTATE=1
 export TERM=screen-256color
-export TERMINAL=terminator
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PROMPT_DIRTRIM=2
-export TERMINAL=terminator
+export TERMINAL=xfce4-terminal
 
 ddp () {
  watch sudo kill -USR1 $(pgrep ^dd)
@@ -175,4 +174,20 @@ QT_QPA_PLATFORMTHEME=kde
 
 PROMPT_COMMAND='history -a'export PROMPT_COMMAND='history -a'
 
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
+to_ogg()
+{
+  directory=$(dirname $1)
+  name=$(basename $1)
+  extension="${name##*.}"
+  filename="${name%.*}"
+  to_extension=$2
+  ffmpeg -i $1 $directory/$filename.$to_extension;
+}
+
+kra_remove()
+{
+  find . -name "*.kra*" -type f -delete
+}
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

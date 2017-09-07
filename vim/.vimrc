@@ -15,18 +15,19 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
-NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim' " search buffers
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'szw/vim-tags'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
 "NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim', {'build': { 'linux' : 'make'}}
-NeoBundle 'majutsushi/tagbar'
+NeoBundle 'majutsushi/tagbar' " right side bar showing tags
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'Valloric/YouCompleteMe'
@@ -35,7 +36,7 @@ NeoBundle 'honza/vim-snippets'
 NeoBundle 'rdnetto/YCM-Generator'
 NeoBundle 'wesQ3/vim-windowswap'
 NeoBundle 'tmux-plugins/vim-tmux'
-NeoBundle 'vim-scripts/a.vim'
+NeoBundle 'vim-scripts/a.vim' " switch cpp/hpp
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'xolox/vim-notes'
@@ -51,7 +52,7 @@ filetype plugin indent on
 NeoBundleCheck
 
 syntax on
-colorscheme busierbee 
+colorscheme Benokai 
 "colorscheme zenburn 
 
 inoremap <C-f> <C-x><C-f>
@@ -85,6 +86,8 @@ ino <down> <Nop>
 
 nmap <Leader><Leader>W <Plug>(easymotion-b)
 nmap <F8> :TagbarToggle<CR>
+
+nmap <C-S-c> :A<CR>
 
 set backspace=indent,eol,start
 set clipboard=unnamed
@@ -150,6 +153,8 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_key_list_select_completion=['<Down>']
 let g:ycm_key_list_previous_completion=['<Up>']
 let g:SuperTabDefaultCompletionType = "<c-n>"
+set signcolumn=yes "always show error thing
+let g:ycm_show_diagnostics_ui = 0
 
 let g:UltiSnipsEditSplit="vertical"
 
@@ -158,3 +163,15 @@ let g:airline_theme="serene"
 " Vimnotes
 let g:notes_directories = ['~/Documents/git/notes/']
 let g:notes_title_sync = 'change_title'
+
+" auto open tagbar
+ autocmd BufEnter *.h,*.hpp,*.cpp nested TagbarOpen
+
+ " ctrlp
+
+ let g:ctrlp_working_path_mode = 0 
+ let g:ctrlp_custom_ignore = {
+   \ 'dir':  '\v[\/]\.(build|lib.*)$'
+   \ }
+
+ au BufRead,BufNewFile *.asm set filetype=nasm

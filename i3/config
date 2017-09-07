@@ -1,20 +1,20 @@
 set $mod Mod1
 
-font pango:Roboto Mono For Powerline 8
+font pango:Source Sans Pro 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+p exec rofi -show run 
+bindsym $mod+p exec "DESKTOP_SESSION=kde rofi -show run"
 bindsym $mod+o exec $HOME/Documents/git/dotfiles/rofi-scripts/i3_switch_workspace.sh
 
-bindsym $mod+Ctrl+l exec i3lock -g -c 000000 -n
+bindsym $mod+Ctrl+l exec i3lock -c 000000 -n
 
 # change focus
 bindsym $mod+h focus left
@@ -128,13 +128,9 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym xf86audiomute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 #bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%+
 #bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%-
-#bindsym XF86AudioMute exec --no-startup-id amixer sset 'Master' toggle
+bindsym XF86AudioMute exec --no-startup-id amixer sset 'Master' toggle
 bindsym XF86AudioPlay exec --no-startup-id playcontrols toggle
 bindsym XF86AudioStop exec --no-startup-id playcontrols stop
 bindsym XF86AudioPrev exec --no-startup-id playcontrols prev
@@ -150,8 +146,10 @@ bindsym Mod4+Left exec --no-startup-id playcontrols prev
 bindsym Mod4+Right exec --no-startup-id playcontrols next
 
 for_window [class="mapgen_[.]*"] floating enable
+for_window [class="zomb[.]*"] floating enable
 for_window [class="mapgen_Debug"] floating enable
 for_window [class="mapgen"] floating enable
+for_window [title="Desktop"] floating disable
 #for_window [class="[.]*"] floating enable
 
 workspace_auto_back_and_forth yes
@@ -165,8 +163,12 @@ client.background       #121212
 bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave move scratchpad
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+#bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+#bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 mouse_warping output
 popup_during_fullscreen smart
@@ -188,25 +190,43 @@ assign [class="chromium"] $two
 assign [class="VirtualBox"] → $eight
 assign [class="Steam"] → $nine
 
+# class                 border  backgr. text    indicator
+client.focused          #2B83A6 #2B83A6 #FFFFFF #DDDDDD
+client.focused_inactive #212121 #212121 #888888 #292D2E
+client.unfocused        #212121 #212121 #888888 #292D2E
+client.urgent           #2F343A #D64E4E #FFFFFF #D64E4E
+client.placeholder      #212121 #0C0C0C #FFFFFF #212121
+client.background       #212121
+
+# start i3bar to display a workspace bar
 bar {
-	status_command py3status
-	position top
-	tray_output primary
-	colors {
-  	background #101010
-  	statusline #454545
-  	focused_workspace #825969 #191919
-  	active_workspace #825969 #101010
-  	inactive_workspace #9a878f #191919
-  	urgent_workspace #2e3436 #9a878f
-  }
+		status_command py3status
+    tray_output             none
+    position                top
+    separator_symbol        "·"
+    workspace_buttons       yes
+
+    colors {
+            background  #212121
+            statusline  #DDDDDD
+            separator   #666666
+            # class             border  backgr. text
+            focused_workspace   #2B83A6 #2B83A6 #FFFFFF
+            active_workspace    #212121 #212121 #FFFFFF
+            inactive_workspace  #212121 #212121 #888888
+            urgent_workspace    #2F343A #D64E4E #FFFFFF
+      }
 }
 
-bindsym Print exec scrot -d 2 -u -e 'notify-send "Screenie taken ($f)" && mv $f ~/Blog/next/'
+
+for_window [class="^.*"] border pixel 1
+
+bindsym Print exec scrot -d 2 -u -e 'notify-send "Screenie taken ($f)" && mv $f ~/Screenshots'
 exec --no-startup-id autocutsel -fork &
 #exec --no-startup-id autocutsel -selection PRIMARY -fork &
 exec --no-startup-id compton -CGb &
 exec --no-startup-id tilda &
+exec --no-startup-id shutter --min_at_startup
 exec --no-startup-id redshift &
 exec --no-startup-id dunst -config ~/.dunstrc &
 exec --no-startup-id hsetroot -solid '#000000' &

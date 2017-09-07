@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+DESKTOP_SESSION=kde dolphin

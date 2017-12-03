@@ -1,5 +1,5 @@
 rofi.run-command: bash -c "{cmd}"
-rofi.kb-mode-next: Shift+Right,Control+Tab,Tab
+/*rofi.kb-mode-next: Shift+Right,Control+Tab,Tab*/
 
 ! Taken from https://davedavenport.github.io/rofi/p05-Themes.html
 ------------------------------------------------------------------------------

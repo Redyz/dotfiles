@@ -32,6 +32,8 @@ fi
 shopt -s checkwinsize
 shopt -s expand_aliases
 
+
+
 alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 alias tmux='tmux -2'
 alias ayy='echo lmao'
@@ -80,14 +82,15 @@ if [ "$PROMPT_COMMAND" == "" ]; then
 else
   PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
 fi
+
 export PS1='\[$(show_length)\]\[\e[92m\]$(get_username)\[$white\]\[\e[$(echo ${#HOSTNAME} % 6 + 30 | bc)m\]\h \[$white\]\w $(__git_ps1 "\[\e[90m\](%s) ")\[$white\]'
+#export PS1='\[$(show_length)\]\[\e[92m\]$(get_username)\[$white\]\[\e[$(echo ${#HOSTNAME} % 6 + 30 | bc)m\]\h \[$white\]\w \[$white\]'
 export GIT_PS1_SHOWDIRTYSTATE=1
-export TERM=screen-256color
-export TERMINAL=terminator
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PROMPT_DIRTRIM=2
-export TERMINAL=terminator
+export TERM=screen-256color
+export TERMINAL=xfce4-terminal
 
 ddp () {
  watch sudo kill -USR1 $(pgrep ^dd)
@@ -171,8 +174,9 @@ alias urxvt="urxvt -e tmux"
 
 source ~/.private-bashrc
 
-QT_QPA_PLATFORMTHEME=kde
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export QT_QPA_PLATFORMTHEME=kde
 
-PROMPT_COMMAND='history -a'export PROMPT_COMMAND='history -a'
-
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
+source /usr/share/autojump/autojump.bash
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

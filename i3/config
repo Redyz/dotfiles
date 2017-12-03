@@ -6,7 +6,7 @@ font pango:Roboto Mono For Powerline 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -67,10 +67,10 @@ bindsym $mod+a focus parent
 
 set $one "1: notes"
 set $two "2: www"
-set $three "3: "
-set $four "4: "
-set $five "5: "
-set $six "6: "
+set $three "3: work"
+set $four "4: work"
+set $five "5: free"
+set $six "6: free"
 set $seven "7: "
 set $eight "8: VM"
 set $nine "9: Steam"
@@ -177,6 +177,8 @@ for_window [class="qutebrowser"] floating disable
 for_window [class="Kdevelop"] floating disable
 for_window [class="hexchat"] floating disable
 for_window [title="Tools.*"] floating enable
+for_window [title="Zu.*"] floating enable
+for_window [class="Desktop"] floating disable
 
 # Borders
 for_window [class="URxvt"] border pixel 1
@@ -191,7 +193,7 @@ assign [class="Steam"] → $nine
 bar {
 	status_command py3status
 	position top
-	tray_output primary
+	tray_output none
 	colors {
   	background #101010
   	statusline #454545

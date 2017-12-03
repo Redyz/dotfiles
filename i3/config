@@ -147,6 +147,7 @@ bindsym Mod4+Right exec --no-startup-id playcontrols next
 
 for_window [class="mapgen_[.]*"] floating enable
 for_window [class="zomb[.]*"] floating enable
+for_window [class="ant [.]*"] floating enable
 for_window [class="mapgen_Debug"] floating enable
 for_window [class="mapgen"] floating enable
 for_window [title="Desktop"] floating disable

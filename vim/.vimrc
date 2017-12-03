@@ -41,6 +41,7 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'xolox/vim-misc'
+NeoBundle 'scrooloose/nerdtree'
 
 " Required:
 call neobundle#end()
@@ -54,6 +55,8 @@ NeoBundleCheck
 syntax on
 colorscheme Benokai 
 "colorscheme zenburn 
+"
+map <C-n> :NERDTreeToggle<CR>
 
 inoremap <C-f> <C-x><C-f>
 inoremap <C-l> <C-x><C-l>

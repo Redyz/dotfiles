@@ -74,12 +74,12 @@ red="$(echo -e "\e[31m")"
 green="$(echo -e "\e[32m")"
 yellow="$(echo -e "\e[93m")"
 white="$(echo -e "\e[97m")"
-trap 'timer_start' DEBUG
-if [ "$PROMPT_COMMAND" == "" ]; then
-  PROMPT_COMMAND="timer_stop"
-else
-  PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
-fi
+#trap 'timer_start' DEBUG
+#if [ "$PROMPT_COMMAND" == "" ]; then
+  #PROMPT_COMMAND="timer_stop"
+#else
+  #PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+#fi
 export PS1='\[$(show_length)\]\[\e[92m\]$(get_username)\[$white\]\[\e[$(echo ${#HOSTNAME} % 6 + 30 | bc)m\]\h \[$white\]\w $(__git_ps1 "\[\e[90m\](%s) ")\[$white\]'
 export GIT_PS1_SHOWDIRTYSTATE=1
 export TERM=screen-256color
@@ -172,9 +172,9 @@ source ~/.private-bashrc
 
 QT_QPA_PLATFORMTHEME=kde
 
-PROMPT_COMMAND='history -a'export PROMPT_COMMAND='history -a'
+#PROMPT_COMMAND='history -a'export PROMPT_COMMAND='history -a'
 
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+#export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
 to_ogg()
 {
@@ -190,4 +190,5 @@ kra_remove()
 {
   find . -name "*.kra*" -type f -delete
 }
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

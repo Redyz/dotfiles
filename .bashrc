@@ -188,7 +188,8 @@ to_ogg()
 
 kra_remove()
 {
-  find . -name "*.kra*" -type f -delete
+  find . -name "*.kra*" -type f -print -delete
+  find . -name "*~" -type f -print -delete
 }
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

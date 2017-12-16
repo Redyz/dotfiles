@@ -15,7 +15,7 @@ highlight article "\\[embedded flash: [0-9][0-9]*\\]" color66 default bold
 
 notify-beep yes
 download-full-page yes
-browser qutebrowser
+browser chromium
 
 bind-key j down
 bind-key k up

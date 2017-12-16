@@ -111,6 +111,7 @@ home_ln qutebrowser/keys.conf .config/qutebrowser/keys.conf
 home_ln qutebrowser/qutebrowser.conf .config/qutebrowser/qutebrowser.conf
 home_ln rofi .config/rofi/config
 home_ln terminator/config .config/terminator/config
+home_ln terminalrc .config/xfce4/terminal/terminalrc
 home_ln tmux/.tmux
 home_ln tmux/.tmux.conf
 home_ln tmux/.tmuxsnapshot
@@ -120,6 +121,7 @@ home_ln vim/after .vim/after
 home_ln vim/ftplugin .vim/ftplugin
 home_ln vim/ultisnips .vim/UltiSnips
 home_ln surfraw .config/surfraw/conf
+home_ln .ncmpcpp .ncmpcpp/config 
 
 #MPD
 touch_and_create "$HOME/.mpd/mpd.pid"

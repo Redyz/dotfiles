@@ -77,21 +77,21 @@ noremap H ^
 noremap L g_
 vnoremap <space> zf
 
-no <left> <Nop>
-no <right> <Nop>
-no <up> <Nop>
-no <down> <Nop>
-
-ino <left> <Nop>
-ino <right> <Nop>
-ino <up> <Nop>
-ino <down> <Nop>
+"no <left> <Nop>
+"no <right> <Nop>
+"no <up> <Nop>
+"no <down> <Nop>
+"
+"ino <left> <Nop>
+"ino <right> <Nop>
+"ino <up> <Nop>
+"ino <down> <Nop>
 
 nmap <Leader><Leader>W <Plug>(easymotion-b)
 nmap <F8> :TagbarToggle<CR>
 
+set autoindent
 nmap <C-S-c> :A<CR>
-
 set backspace=indent,eol,start
 set clipboard=unnamed
 set expandtab
@@ -111,7 +111,6 @@ set nowrap
 set number
 set relativenumber
 set shiftwidth=2
-set smartindent
 set t_Co=256
 set tabstop=2
 set title

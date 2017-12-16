@@ -32,6 +32,8 @@ fi
 shopt -s checkwinsize
 shopt -s expand_aliases
 
+
+
 alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 alias tmux='tmux -2'
 alias ayy='echo lmao'
@@ -74,6 +76,13 @@ red="$(echo -e "\e[31m")"
 green="$(echo -e "\e[32m")"
 yellow="$(echo -e "\e[93m")"
 white="$(echo -e "\e[97m")"
+trap 'timer_start' DEBUG
+if [ "$PROMPT_COMMAND" == "" ]; then
+  PROMPT_COMMAND="timer_stop"
+else
+  PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
+fi
+
 #trap 'timer_start' DEBUG
 #if [ "$PROMPT_COMMAND" == "" ]; then
   #PROMPT_COMMAND="timer_stop"
@@ -81,11 +90,12 @@ white="$(echo -e "\e[97m")"
   #PROMPT_COMMAND="$PROMPT_COMMAND; timer_stop"
 #fi
 export PS1='\[$(show_length)\]\[\e[92m\]$(get_username)\[$white\]\[\e[$(echo ${#HOSTNAME} % 6 + 30 | bc)m\]\h \[$white\]\w $(__git_ps1 "\[\e[90m\](%s) ")\[$white\]'
+#export PS1='\[$(show_length)\]\[\e[92m\]$(get_username)\[$white\]\[\e[$(echo ${#HOSTNAME} % 6 + 30 | bc)m\]\h \[$white\]\w \[$white\]'
 export GIT_PS1_SHOWDIRTYSTATE=1
-export TERM=screen-256color
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PROMPT_DIRTRIM=2
+export TERM=screen-256color
 export TERMINAL=xfce4-terminal
 
 ddp () {
@@ -170,6 +180,11 @@ alias urxvt="urxvt -e tmux"
 
 source ~/.private-bashrc
 
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export QT_QPA_PLATFORMTHEME=kde
+
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
+source /usr/share/autojump/autojump.bash
 QT_QPA_PLATFORMTHEME=kde
 
 #PROMPT_COMMAND='history -a'export PROMPT_COMMAND='history -a'

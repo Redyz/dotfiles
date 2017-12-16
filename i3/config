@@ -1,6 +1,6 @@
 set $mod Mod1
 
-font pango:Source Sans Pro 10
+font pango:misc gohup:style=Regular 10px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -67,10 +67,10 @@ bindsym $mod+a focus parent
 
 set $one "1: notes"
 set $two "2: www"
-set $three "3: "
-set $four "4: "
-set $five "5: "
-set $six "6: "
+set $three "3: work"
+set $four "4: work"
+set $five "5: free"
+set $six "6: free"
 set $seven "7: "
 set $eight "8: VM"
 set $nine "9: Steam"
@@ -145,11 +145,13 @@ bindsym Mod4+Up exec --no-startup-id playcontrols stop
 bindsym Mod4+Left exec --no-startup-id playcontrols prev
 bindsym Mod4+Right exec --no-startup-id playcontrols next
 
+for_window [class="feh[.]*"] floating enable
 for_window [class="mapgen_[.]*"] floating enable
 for_window [class="zomb[.]*"] floating enable
 for_window [class="ant [.]*"] floating enable
 for_window [class="mapgen_Debug"] floating enable
 for_window [class="mapgen"] floating enable
+#for_window [class="[.]*"] floating enable
 for_window [title="Desktop"] floating disable
 #for_window [class="[.]*"] floating enable
 
@@ -180,6 +182,8 @@ for_window [class="qutebrowser"] floating disable
 for_window [class="Kdevelop"] floating disable
 for_window [class="hexchat"] floating disable
 for_window [title="Tools.*"] floating enable
+for_window [title="Zu.*"] floating enable
+for_window [class="Desktop"] floating disable
 
 # Borders
 for_window [class="URxvt"] border pixel 1
@@ -224,11 +228,11 @@ for_window [class="^.*"] border pixel 1
 
 bindsym Print exec scrot -d 2 -u -e 'notify-send "Screenie taken ($f)" && mv $f ~/Screenshots'
 exec --no-startup-id autocutsel -fork &
-#exec --no-startup-id autocutsel -selection PRIMARY -fork &
 exec --no-startup-id compton -CGb &
 exec --no-startup-id tilda &
 exec --no-startup-id shutter --min_at_startup
 exec --no-startup-id redshift &
+exec --no-startup-id emojione-picker &
 exec --no-startup-id dunst -config ~/.dunstrc &
 exec --no-startup-id hsetroot -solid '#000000' &
 exec --no-startup-id i3-msg "workspace number 1"

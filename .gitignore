@@ -1,4 +1,4 @@
 .tmux/plugins
 .tmux/resurrect
 .mpd.conf
-
+*.swp

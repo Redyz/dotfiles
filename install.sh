@@ -89,7 +89,10 @@ else
   echo "Neobundle already installed"
 fi;
 
-ln -s $PWD/xfce4 $HOME/.config/xfce4 
+if [ ! -d "$HOME/.config/xfce4" ]; then 
+  ln -s $PWD/xfce4 $HOME/.config/xfce4
+fi
+
 verify_ln ~/.vimrc
 
 echo "Setting git properties"
@@ -123,6 +126,7 @@ home_ln vim/ftplugin .vim/ftplugin
 home_ln vim/ultisnips .vim/UltiSnips
 home_ln surfraw .config/surfraw/conf
 home_ln .ncmpcpp .ncmpcpp/config 
+home_ln ranger/rc.conf .config/ranger/rc.conf
 
 #MPD
 touch_and_create "$HOME/.mpd/mpd.pid"

@@ -1,0 +1,16 @@
+[Desktop Entry]
+Exec=env XDG_CURRENT_DESKTOP=kde systemsettings5
+Icon=preferences-system
+Type=Application
+X-KDE-StartupNotify=true
+NotShowIn=KDE;
+GenericName=KDE System Settings
+Name=KDE System Settings
+Comment=Configuration tools for your computer
+X-DBUS-StartupType=Unique
+X-DBUS-ServiceName=org.kde.systemsettings
+Categories=Qt;KDE;Settings;
+X-XFCE-Source=file:///usr/share/applications/kdesystemsettings.desktop
+Path=
+Terminal=false
+StartupNotify=false

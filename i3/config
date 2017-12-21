@@ -6,7 +6,7 @@ font pango:misc gohup:style=Regular 10px
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -14,7 +14,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+p exec "DESKTOP_SESSION=kde rofi -show run"
 bindsym $mod+o exec $HOME/Documents/git/dotfiles/rofi-scripts/i3_switch_workspace.sh
 
-bindsym $mod+Ctrl+l exec i3lock -c 000000 -n
 
 # change focus
 bindsym $mod+h focus left
@@ -184,10 +183,7 @@ for_window [class="hexchat"] floating disable
 for_window [title="Tools.*"] floating enable
 for_window [title="Zu.*"] floating enable
 for_window [class="Desktop"] floating disable
-
-# Borders
-for_window [class="URxvt"] border pixel 1
-
+ 
 # Workspaces
 assign [class="xpad"] $one
 assign [class="qutebrowser"] $two
@@ -203,29 +199,12 @@ client.urgent           #2F343A #D64E4E #FFFFFF #D64E4E
 client.placeholder      #212121 #0C0C0C #FFFFFF #212121
 client.background       #212121
 
-# start i3bar to display a workspace bar
-bar {
-		status_command py3status
-    tray_output             none
-    position                top
-    separator_symbol        "·"
-    workspace_buttons       yes
+for_window [class="^.*"] border pixel 0
 
-    colors {
-            background  #212121
-            statusline  #DDDDDD
-            separator   #666666
-            # class             border  backgr. text
-            focused_workspace   #2B83A6 #2B83A6 #FFFFFF
-            active_workspace    #212121 #212121 #FFFFFF
-            inactive_workspace  #212121 #212121 #888888
-            urgent_workspace    #2F343A #D64E4E #FFFFFF
-      }
-}
+gaps inner 20
+gaps outer 5
 
-
-for_window [class="^.*"] border pixel 1
-
+bindsym $mod+Ctrl+l exec i3lock --fuzzy
 bindsym Print exec scrot -d 2 -u -e 'notify-send "Screenie taken ($f)" && mv $f ~/Screenshots'
 exec --no-startup-id autocutsel -fork &
 exec --no-startup-id compton -CGb &
@@ -233,6 +212,6 @@ exec --no-startup-id tilda &
 exec --no-startup-id shutter --min_at_startup
 exec --no-startup-id redshift &
 exec --no-startup-id emojione-picker &
-exec --no-startup-id dunst -config ~/.dunstrc &
-exec --no-startup-id hsetroot -solid '#000000' &
+exec --no-startup-id wal -R
 exec --no-startup-id i3-msg "workspace number 1"
+

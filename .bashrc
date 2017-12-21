@@ -5,7 +5,7 @@ fi
 
 source /usr/share/git/git-prompt.sh
 
-export LD_LIBRARY_PATH=${HOME}/bin/libevent/lib/:${LD_LIBRARY_PATH}
+export LD_LIBRARY_PATH=${HOME}/bin/libevent/lib/:${LD_LIBRARY_PATH}:/usr/local/bin/
 export PATH=${HOME}/bin/tmux/bin:${PATH}:${HOME}/Documents/scripts
 export MANPATH=${HOME}/bin/tmux/share/man:${MANPATH}
 
@@ -190,6 +190,12 @@ QT_QPA_PLATFORMTHEME=kde
 #PROMPT_COMMAND='history -a'export PROMPT_COMMAND='history -a'
 
 #export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
+yawn()
+{
+  yaourt --color -Ss $1 | grep '^\S*[ce]\w*/' -A1
+}
+
 
 to_ogg()
 {

@@ -42,6 +42,7 @@ NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'xolox/vim-notes'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'dylanaraps/wal'
 
 " Required:
 call neobundle#end()
@@ -53,7 +54,8 @@ filetype plugin indent on
 NeoBundleCheck
 
 syntax on
-colorscheme Benokai 
+colorscheme wal
+"colorscheme Benokai 
 "colorscheme zenburn 
 "
 map <C-n> :NERDTreeToggle<CR>

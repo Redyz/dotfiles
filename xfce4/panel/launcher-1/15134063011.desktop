@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Control
+Exec=env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+Icon=csd-cursor
+StartupWMClass=crx_hmjkmjkepdijhoojdojkdfohbdgmmhki
+X-XFCE-Source=file:///home/reightb/.local/share/applications/chrome-hmjkmjkepdijhoojdojkdfohbdgmmhki-Profile_3.desktop
+Comment=
+Path=
+StartupNotify=false

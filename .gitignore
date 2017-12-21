@@ -2,3 +2,9 @@
 .tmux/resurrect
 .mpd.conf
 *.swp
+xfce4/desktop/*
+xfce4/panel/weather*
+xfce4/panel/whiskermenu*
+xfce4/panel/xfce4-sensors-plugin*
+xfce4/terminal/accels*
+xfce4/xfconf/*

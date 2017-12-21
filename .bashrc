@@ -34,7 +34,7 @@ shopt -s expand_aliases
 
 
 
-alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
+#alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 alias tmux='tmux -2'
 alias ayy='echo lmao'
 export EDITOR=vim
@@ -172,11 +172,9 @@ man_python() {
 current_term=$(ps -p $(ps -p $$ -o ppid=) o args=)
 if [[ "$current_term" == "urxvt" ]]; then
   if [[ "$TMUX" == "" ]]; then
-    exec tmux -2
+    tmux -2
   fi
 fi
-
-alias urxvt="urxvt -e tmux"
 
 source ~/.private-bashrc
 
@@ -209,7 +207,8 @@ to_ogg()
 
 kra_remove()
 {
-  find . -name "*.kra*" -type f -delete
+  find . -name "*.kra*" -type f -print -delete
+  find . -name "*~" -type f -print -delete
 }
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

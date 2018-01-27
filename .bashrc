@@ -37,6 +37,7 @@ shopt -s expand_aliases
 #alias urxvt='urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 alias tmux='tmux -2'
 alias ayy='echo lmao'
+alias r='ranger'
 export EDITOR=vim
 
 # http://jakemccrary.com/blog/2015/05/03/put-the-last-commands-run-time-in-your-bash-prompt/
@@ -178,12 +179,11 @@ fi
 
 source ~/.private-bashrc
 
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export QT_QPA_PLATFORMTHEME=kde
+#export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+#export QT_QPA_PLATFORMTHEME=kde
 
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 source /usr/share/autojump/autojump.bash
-QT_QPA_PLATFORMTHEME=kde
 
 #PROMPT_COMMAND='history -a'export PROMPT_COMMAND='history -a'
 
@@ -212,3 +212,7 @@ kra_remove()
 }
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 #[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+
+
+(cat ~/.cache/wal/sequences &)
+

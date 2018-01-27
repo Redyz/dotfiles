@@ -6,13 +6,13 @@ font pango:misc gohup:style=Regular 10px
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+p exec "DESKTOP_SESSION=kde rofi -show run"
-bindsym $mod+o exec $HOME/Documents/git/dotfiles/rofi-scripts/i3_switch_workspace.sh
+bindsym $mod+p exec "rofi -show run"
+bindsym $mod+o exec emojione-picker
 
 
 # change focus
@@ -201,7 +201,8 @@ client.background       #212121
 
 for_window [class="^.*"] border pixel 0
 
-gaps inner 20
+gaps inner 18
+
 gaps outer 5
 
 bindsym $mod+Ctrl+l exec i3lock --fuzzy
@@ -212,6 +213,4 @@ exec --no-startup-id tilda &
 exec --no-startup-id shutter --min_at_startup
 exec --no-startup-id redshift &
 exec --no-startup-id emojione-picker &
-exec --no-startup-id wal -R
 exec --no-startup-id i3-msg "workspace number 1"
-

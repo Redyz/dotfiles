@@ -51,11 +51,11 @@ function yes_prompt(){
 function verify_ln(){
   if ! [ -e $2 ]; then
     ln -fs $1 $2
-    echo Creating symlink $1
+    echo "[ ] Creating symlink $1"
   elif [ -h $2 ]; then
-    echo Symlink $1 already exists
+    echo "[ ] Symlink $1 already exists"
   else
-    echo "File exists ($1) but is not a symlink"
+    echo "[X] File exists ($1) but is not a symlink"
   fi;
 }
 
@@ -71,7 +71,7 @@ function home_ln(){
 function touch_and_create(){
   mkdir -p $(dirname $1)
   touch $1
-  echo "Created and touched $1"
+  echo "[ ] Created and touched $1"
 }
 
 echo "Dotfiles install script"
@@ -93,16 +93,16 @@ if [ ! -d "$HOME/.config/xfce4" ]; then
   ln -s $PWD/xfce4 $HOME/.config/xfce4
 fi
 
-verify_ln ~/.vimrc
+mkdir -p ~/.newsbeuter
+mkdir -p ~/.config/terminator
 
 echo "Setting git properties"
 git config --global user.email "Redyz"
 git config --global user.name "Redyz"
-
-mkdir -p ~/.newsbeuter
-mkdir -p ~/.config/terminator
+verify_ln ~/.vimrc
 
 home_ln .bashrc
+home_ln .zshrc
 home_ln .dunstrc .config/dunst/dunstrc
 home_ln compton.conf .config/compton.conf
 home_ln htoprc .config/htop/htoprc

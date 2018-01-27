@@ -1,17 +1,8 @@
-"NeoBundle Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
-
 endif
-
-" Required:
 set runtimepath^=~/.vim/bundle/neobundle.vim/
-
-" Required:
 call neobundle#begin(expand('~/.vim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
@@ -59,6 +50,8 @@ colorscheme wal
 "colorscheme zenburn 
 "
 map <C-n> :NERDTreeToggle<CR>
+
+set encoding=utf-8
 
 inoremap <C-f> <C-x><C-f>
 inoremap <C-l> <C-x><C-l>
@@ -117,7 +110,6 @@ set t_Co=256
 set tabstop=2
 set title
 set ttymouse=xterm2
-au BufNewFile,BufRead */LOG635*/* setlocal ts=10
 syntax enable
 
 "Remember last position

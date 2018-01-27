@@ -96,6 +96,9 @@ fi
 mkdir -p ~/.newsbeuter
 mkdir -p ~/.config/terminator
 
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 echo "Setting git properties"
 git config --global user.email "Redyz"
 git config --global user.name "Redyz"
@@ -134,7 +137,11 @@ touch_and_create "$HOME/.mpd/mpd.db"
 touch_and_create "$HOME/.mpd/mpdstate"
 mkdir -p "$HOME/.mpd/playlists"
 
-important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"
+#important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"
+
+echo "Current dotfiles status:"
+git --no-pager diff --shortstat
+
 if no_prompt "Compile YCM?"; then false;
 else
   python2.7 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer

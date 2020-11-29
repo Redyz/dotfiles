@@ -1,3 +1,4 @@
 ;rofi.run-command: bash -c "XDG_CURRENT_DESKTOP=KDE {cmd}"
 rofi.run-command: bash -c "{cmd}"
-rofi.modi: run,window
+rofi.modi: window,drun
+rofi.theme: /usr/share/rofi/themes/sidebar.rasi

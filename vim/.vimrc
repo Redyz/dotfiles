@@ -5,35 +5,12 @@ set runtimepath^=~/.vim/bundle/neobundle.vim/
 call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Add or remove your Bundles here:
-NeoBundle 'ctrlpvim/ctrlp.vim' " search buffers
-NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'szw/vim-tags'
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
-"NeoBundle 'edkolev/tmuxline.vim'
-NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'junegunn/fzf'
 NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc.vim', {'build': { 'linux' : 'make'}}
-NeoBundle 'majutsushi/tagbar' " right side bar showing tags
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'rdnetto/YCM-Generator'
-NeoBundle 'wesQ3/vim-windowswap'
-NeoBundle 'tmux-plugins/vim-tmux'
-NeoBundle 'vim-scripts/a.vim' " switch cpp/hpp
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'embear/vim-localvimrc'
-NeoBundle 'xolox/vim-notes'
-NeoBundle 'xolox/vim-misc'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'dylanaraps/wal'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 
 " Required:
 call neobundle#end()
@@ -45,11 +22,12 @@ filetype plugin indent on
 NeoBundleCheck
 
 syntax on
-colorscheme wal
-"colorscheme Benokai 
+"colorscheme wal
+colorscheme Benokai 
 "colorscheme zenburn 
 "
-map <C-n> :NERDTreeToggle<CR>
+map <C-w><C-e> :NERDTreeToggle<CR>
+map <C-w><C-f> :FZF<CR>
 
 set encoding=utf-8
 

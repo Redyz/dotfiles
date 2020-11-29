@@ -1,0 +1,1 @@
+ yes | sudo pacman -S -y yay

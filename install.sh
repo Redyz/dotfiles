@@ -97,7 +97,8 @@ function touch_and_create(){
   echo "[ ] Touching $1"
 }
 
-
+info "Installing packages"
+./packages.sh
 touch ~/.private-bashrc
 
 home_ln tmux/.tmux

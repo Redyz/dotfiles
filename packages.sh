@@ -1,1 +1,1 @@
- yes | sudo pacman -S -y yay
+ yes | sudo pacman -S -y yay inxi

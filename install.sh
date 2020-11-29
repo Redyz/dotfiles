@@ -4,7 +4,7 @@
 #      
 
 git_version=$(git rev-parse --short HEAD | tail -n 1)
-echo "🛠️ == [Dotfiles v$git_Version] == 🛠️"
+echo "🛠️ == [Dotfiles v$git_version] == 🛠️"
 
 quiet_mode=false
 while getopts ":q" opt; do
@@ -101,14 +101,20 @@ info "Installing packages"
 ./packages.sh
 touch ~/.private-bashrc
 
+
+info "Setting up essential dirs"
+mkdir -p ~/.config/newsboat
+mkdir -p ~/.config/terminator
 home_ln tmux/.tmux
 home_ln tmux/.tmux.conf
 home_ln tmux/.tmuxsnapshot
 
+info "Setting tmux TPM"
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then 
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi;
 
+info "Setting up Neobundle"
 if [ ! -d "$HOME/.vim/bundle/neobundle.vim" ]; then 
   info "Installing Neobundle"
   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install-neobundle-script-temp.sh
@@ -121,10 +127,8 @@ if [ ! -d "$HOME/.config/xfce4" ]; then
   ln -s $PWD/xfce4 $HOME/.config/xfce4
 fi
 
-mkdir -p ~/.config/newsboat
-mkdir -p ~/.config/terminator
 
-# Install oh-my-zsh
+info "Setting ZSH from git"
 zsh --version || sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 info "Setting git properties"
@@ -132,6 +136,7 @@ git config --global user.email "Redyz"
 git config --global user.name "Redyz"
 verify_ln ~/.vimrc
 
+info "Setting up home links"
 home_ln .bashrc
 home_ln .zshrc
 home_ln .dunstrc .config/dunst/dunstrc
@@ -156,7 +161,7 @@ home_ln surfraw .config/surfraw/conf
 home_ln .ncmpcpp .ncmpcpp/config 
 home_ln ranger/rc.conf .config/ranger/rc.conf
 
-#MPD
+info "Setting up MPD"
 touch_and_create "$HOME/.mpd/mpd.pid"
 touch_and_create "$HOME/.mpd/mpd.db"
 touch_and_create "$HOME/.mpd/mpdstate"
@@ -170,12 +175,10 @@ verify_dir /mnt/extra4
 verify_dir /mnt/backup-3000
 verify_dir /mnt/backup-3000-mirror
 
+info "Finalizing - running inxi"
+inxi -F
+
 info "Current dotfiles git status:"
 git --no-pager diff --shortstat
-
-#if no_prompt "Compile YCM?"; then false;
-#else
-#  python2.7 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
-#fi;
 
 echo "🕶 ==  [Done] == 🕶"

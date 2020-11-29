@@ -24,6 +24,10 @@ function important(){
   echo $padding
 }
 
+function info(){
+  echo "-- $1"
+}
+
 function no_prompt(){
   echo "$@ [y/N] "
   if [ "$quiet_mode" == true ] ; then echo N; return 0; fi
@@ -50,6 +54,16 @@ function yes_prompt(){
           return 0
           ;;
   esac
+}
+
+function verify_dir(){
+  if ! [ -e $1 ]; then
+    sudo mkdir -p $1 -v
+    sudo chown $USER:$USER $1
+    echo "[📤] Creating symlink $1"
+  else
+    echo "[ ] Folder $1 already exists"
+  fi;
 }
 
 function verify_ln(){
@@ -80,10 +94,10 @@ function home_ln(){
 function touch_and_create(){
   mkdir -p $(dirname $1)
   touch $1
-  echo "[ ] Created and touched $1"
+  echo "[ ] Touching $1"
 }
 
-echo "Dotfiles install script"
+
 touch ~/.private-bashrc
 
 home_ln tmux/.tmux
@@ -95,11 +109,11 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
 fi;
 
 if [ ! -d "$HOME/.vim/bundle/neobundle.vim" ]; then 
-  echo "Installing Neobundle"
+  info "Installing Neobundle"
   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install-neobundle-script-temp.sh
   sh ./install-neobundle-script-temp.sh && rm install-neobundle-script-temp.sh
 else
-  echo "Neobundle already installed"
+  info "Neobundle already installed"
 fi;
 
 if [ ! -d "$HOME/.config/xfce4" ]; then 
@@ -112,7 +126,7 @@ mkdir -p ~/.config/terminator
 # Install oh-my-zsh
 zsh --version || sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-echo "Setting git properties"
+info "Setting git properties"
 git config --global user.email "Redyz"
 git config --global user.name "Redyz"
 verify_ln ~/.vimrc
@@ -147,7 +161,15 @@ touch_and_create "$HOME/.mpd/mpd.db"
 touch_and_create "$HOME/.mpd/mpdstate"
 mkdir -p "$HOME/.mpd/playlists"
 
-echo "Current dotfiles status:"
+info "Setting up shares"
+verify_dir /mnt/extra
+verify_dir /mnt/extra2
+verify_dir /mnt/extra3
+verify_dir /mnt/extra4
+verify_dir /mnt/backup-3000
+verify_dir /mnt/backup-3000-mirror
+
+info "Current dotfiles git status:"
 git --no-pager diff --shortstat
 
 #if no_prompt "Compile YCM?"; then false;

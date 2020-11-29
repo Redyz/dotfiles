@@ -1,5 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
+alias ss="ssh 192.168.0.120 -X"
+alias st="ssh 192.168.0.120 -X /bin/bash -c /usr/bin/bmenu"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -86,3 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.private-bashrc
 export EDITOR=/usr/bin/vim
+
+echo $HOME/mjpg-streamer/build/start.sh
+
+alias r="rofi -show drun"

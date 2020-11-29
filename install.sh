@@ -1,5 +1,6 @@
 #!/bin/bash
-#TODO: Patched fonts,
+# ?->2020-11-29: Legacy, tbd date
+# 2020-11-29: Rework
 #      
 
 quiet_mode=false
@@ -97,7 +98,7 @@ if [ ! -d "$HOME/.config/xfce4" ]; then
   ln -s $PWD/xfce4 $HOME/.config/xfce4
 fi
 
-mkdir -p ~/.newsbeuter
+mkdir -p ~/.config/newsboat
 mkdir -p ~/.config/terminator
 
 # Install oh-my-zsh
@@ -116,8 +117,8 @@ home_ln htoprc .config/htop/htoprc
 home_ln i3/.i3status.conf .i3/i3status.conf
 home_ln i3/config .config/i3/config
 home_ln mpd/mpd.conf .mpd/mpd.conf
-home_ln newsbeuter/config .newsbeuter/config
-home_ln newsbeuter/urls .newsbeuter/urls
+home_ln newsboat/config .config/newsboat/config
+home_ln newsboat/urls .config/newsboat/urls
 home_ln qutebrowser/keys.conf .config/qutebrowser/keys.conf
 home_ln qutebrowser/qutebrowser.conf .config/qutebrowser/qutebrowser.conf
 home_ln rofi .config/rofi/config

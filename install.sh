@@ -3,6 +3,9 @@
 # 2020-11-29: Rework
 #      
 
+git_version=$(git rev-parse --short HEAD | tail -n 1)
+echo "🛠️ == [Dotfiles v$git_Version] == 🛠️"
+
 quiet_mode=false
 while getopts ":q" opt; do
   case $opt in
@@ -52,11 +55,16 @@ function yes_prompt(){
 function verify_ln(){
   if ! [ -e $2 ]; then
     ln -fs $1 $2
-    echo "[ ] Creating symlink $1"
+    echo "[📤] Creating symlink $1"
   elif [ -h $2 ]; then
     echo "[ ] Symlink $1 already exists"
   else
-    echo "[X] File exists ($1) but is not a symlink"
+    echo "[!] File exists ($1) but is not a symlink"
+    if no_prompt "Fix?"; then false;
+    else
+      mv $2 $2-old -v
+      echo "[📤] Fixing symlink $1"
+    fi;
   fi;
 }
 
@@ -102,7 +110,7 @@ mkdir -p ~/.config/newsboat
 mkdir -p ~/.config/terminator
 
 # Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+zsh --version || sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "Setting git properties"
 git config --global user.email "Redyz"
@@ -139,14 +147,12 @@ touch_and_create "$HOME/.mpd/mpd.db"
 touch_and_create "$HOME/.mpd/mpdstate"
 mkdir -p "$HOME/.mpd/playlists"
 
-#important "If using KDE, import keyboard settings manually (Global Keyboard -> Kwin)"
-
 echo "Current dotfiles status:"
 git --no-pager diff --shortstat
 
-if no_prompt "Compile YCM?"; then false;
-else
-  python2.7 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
-fi;
+#if no_prompt "Compile YCM?"; then false;
+#else
+#  python2.7 $HOME/.vim/bundle/YouCompleteMe/install.py --clang-completer
+#fi;
 
-echo Done!
+echo "🕶 ==  [Done] == 🕶"
